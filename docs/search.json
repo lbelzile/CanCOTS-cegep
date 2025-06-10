@@ -39,14 +39,14 @@
     "href": "CanCOTS-CEGEP.html#recommendations-du-gaise",
     "title": "Probabilités et statistique",
     "section": "Recommendations du GAISE",
-    "text": "Recommendations du GAISE\n\nEnseigner la statistique et la science des données comme des processus itératifs permettant de tirer des enseignements des données afin d’éclairer les décisions fondées sur des preuves.\nMettre l’accent sur une communication écrite et orale effective des résultats obtenus à partir des données, en prêtant attention à la portée et aux limites des conclusions.\nSe concentrer sur la compréhension conceptuelle plutôt que sur la manipulation algébrique et les formules."
+    "text": "Recommendations du GAISE\n\nEnseigner la statistique et la science des données comme des processus itératifs permettant de tirer des enseignements des données afin d’éclairer les décisions fondées sur des preuves.\nMettre l’accent sur une communication écrite et orale effective des résultats obtenus à partir des données, en prêtant attention à la portée et aux limites des conclusions."
   },
   {
     "objectID": "CanCOTS-CEGEP.html#recommendations-du-gaise-1",
     "href": "CanCOTS-CEGEP.html#recommendations-du-gaise-1",
     "title": "Probabilités et statistique",
     "section": "Recommendations du GAISE",
-    "text": "Recommendations du GAISE\n\nIntégrer des données réelles avec un contexte et un objectif tout au long du cours. Sélectionner des données significatives et attrayantes pour les étudiants.\nEncourager la réflexion multidimensionnelle."
+    "text": "Recommendations du GAISE\n\nSe concentrer sur la compréhension conceptuelle plutôt que sur la manipulation algébrique et les formules.\nIntégrer des données réelles avec un contexte et un objectif tout au long du cours. Sélectionner des données significatives et attrayantes pour les étudiants.\nEncourager la réflexion multidimensionnelle."
   },
   {
     "objectID": "CanCOTS-CEGEP.html#recommendations-du-gaise-2",
@@ -235,21 +235,21 @@
     "href": "CanCOTS-CEGEP.html#résultats-de-deux-tests-dindépendance",
     "title": "Probabilités et statistique",
     "section": "Résultats de deux tests d’indépendance",
-    "text": "Résultats de deux tests d’indépendance\nLe test de Fisher utilise le rapport de cotes comme statistique de test. Si l’on suppose que les décomptes (lignes/colonnes) sont fixes, un argument combinatoire donne une loi hypergéométrique pour la loi d’échantillonnage.\n\n## \n##  Fisher's Exact Test for Count Data\n## \n## data:  tab1\n## p-value = 6e-06\n## alternative hypothesis: true odds ratio is not equal to 1\n## 95 percent confidence interval:\n##  1.48 2.78\n## sample estimates:\n## odds ratio \n##       2.02"
+    "text": "Résultats de deux tests d’indépendance\nLe test de Fisher utilise le rapport de cotes comme statistique de test. Si l’on suppose que les décomptes (lignes/colonnes) sont fixes, un argument combinatoire donne une loi hypergéométrique pour la loi d’échantillonnage.\n\n\n\n    Fisher's Exact Test for Count Data\n\ndata:  tab1\np-value = 5.851e-06\nalternative hypothesis: true odds ratio is not equal to 1\n95 percent confidence interval:\n 1.477439 2.780937\nsample estimates:\nodds ratio \n  2.023973"
   },
   {
     "objectID": "CanCOTS-CEGEP.html#test-du-khi-deux",
     "href": "CanCOTS-CEGEP.html#test-du-khi-deux",
     "title": "Probabilités et statistique",
     "section": "Test du khi-deux",
-    "text": "Test du khi-deux\nLe test du khi-deux (sic) utilise une approximation khi-deux à un degré de liberté.\n\n## \n##  Pearson's Chi-squared test\n## \n## data:  tab1\n## X-squared = 21, df = 1, p-value = 5e-06\n\nLes statistiques et les valeurs-p diffèrent! Est-ce important?"
+    "text": "Test du khi-deux\nLe test du khi-deux (sic) utilise une approximation khi-deux à un degré de liberté.\n\n\n\n    Pearson's Chi-squared test\n\ndata:  tab1\nX-squared = 20.993, df = 1, p-value = 4.61e-06\n\n\nLes statistiques et les valeurs-p diffèrent! Est-ce important?"
   },
   {
     "objectID": "CanCOTS-CEGEP.html#comparaison-des-revenus",
     "href": "CanCOTS-CEGEP.html#comparaison-des-revenus",
     "title": "Probabilités et statistique",
     "section": "Comparaison des revenus",
-    "text": "Comparaison des revenus\nOn peut faire un test-t pour deux échantillons indépendants pour comparer les revenus.\n\n## \n##  Two Sample t-test\n## \n## data:  montant by groupe\n## t = -4, df = 867, p-value = 2e-04\n## alternative hypothesis: true difference in means between group ouvert and group fixe is not equal to 0\n## 95 percent confidence interval:\n##  -2.945 -0.914\n## sample estimates:\n## mean in group ouvert   mean in group fixe \n##                 6.77                 8.70\n\nConclusions et limitations de l’étude?"
+    "text": "Comparaison des revenus\nOn peut faire un test-t pour deux échantillons indépendants pour comparer les revenus.\n\n\n\n    Two Sample t-test\n\ndata:  montant by groupe\nt = -3.7292, df = 867, p-value = 0.0002046\nalternative hypothesis: true difference in means between group ouvert and group fixe is not equal to 0\n95 percent confidence interval:\n -2.944756 -0.913908\nsample estimates:\nmean in group ouvert   mean in group fixe \n            6.770885             8.700216 \n\n\nConclusions et limitations de l’étude?"
   },
   {
     "objectID": "CanCOTS-CEGEP.html#test-de-permutation-et-autoamorçage",
@@ -291,14 +291,14 @@
     "href": "CanCOTS-CEGEP.html#code-pour-monte-carlo",
     "title": "Probabilités et statistique",
     "section": "Code pour Monte Carlo",
-    "text": "Code pour Monte Carlo\n\n\nCode\nB &lt;- 1000L # nombre de simulations Monte Carlo\nvues &lt;- c(3060L, 2982L, 3112L, 3083L)\ntotal &lt;- sum(vues) # décompte total\n# Fonction calculant la statistique de test\nstat_khideux_unif &lt;- function(\n    x, # vecteur de décomptes\n    prob = rep(1/length(x), length(x)), # probabilité postulée \n    n = sum(x)) # décompte total\n  { # E = n*prob, O = x\n  sum((x - n*prob)^2/(n*prob)) # statistique du score\n}\n\n# On remplace l'approximation khi-deux avec 3 ddl\n# par une approximation Monte Carlo\nloinulle &lt;- numeric(B) # contenant\ntest &lt;- stat_khideux_unif(vues) # stat avec données originales\n# Tirages sous H0\nfor(i in 1:B){\n  x0 &lt;- c(rmultinom(n = 1, size = total, prob = rep(0.25, 4)))\n  loinulle[i] &lt;- stat_khideux_unif(x0)\n}\n# Probabilité sous H0 d'obtenir un résultat plus grand?\n# remplacée par proportion empirique\nmean(loinulle &gt;= test)\n## [1] 0.377"
+    "text": "Code pour Monte Carlo\n\n\nCode\nB &lt;- 1000L # nombre de simulations Monte Carlo\nvues &lt;- c(3060L, 2982L, 3112L, 3083L)\ntotal &lt;- sum(vues) # décompte total\n# Fonction calculant la statistique de test\nstat_khideux_unif &lt;- function(\n    x, # vecteur de décomptes\n    prob = rep(1/length(x), length(x)), # probabilité postulée \n    n = sum(x)) # décompte total\n  { # E = n*prob, O = x\n  sum((x - n*prob)^2/(n*prob)) # statistique du score\n}\n\n# On remplace l'approximation khi-deux avec 3 ddl\n# par une approximation Monte Carlo\nloinulle &lt;- numeric(B) # contenant\ntest &lt;- stat_khideux_unif(vues) # stat avec données originales\n# Tirages sous H0\nfor(i in 1:B){\n  x0 &lt;- c(rmultinom(n = 1, size = total, prob = rep(0.25, 4)))\n  loinulle[i] &lt;- stat_khideux_unif(x0)\n}\n# Probabilité sous H0 d'obtenir un résultat plus grand?\n# remplacée par proportion empirique\nmean(loinulle &gt;= test)\n\n\n[1] 0.377"
   },
   {
     "objectID": "CanCOTS-CEGEP.html#questions-plus-générales",
     "href": "CanCOTS-CEGEP.html#questions-plus-générales",
     "title": "Probabilités et statistique",
     "section": "Questions plus générales",
-    "text": "Questions plus générales\nOn peut estimer le taux de conversion (clics/vues) par la proportion empirique.\n\nprop &lt;- with(abtest, clics/vues)\nnvues &lt;- 1000 # nombre de vues\nB &lt;- 1e4L # nombre de simulations Monte Carlo\nres &lt;- cbind(\n  rbinom(n = B, size = nvues, prob = prop[1]),\n  rbinom(n = B, size = nvues, prob = prop[2]),\n  rbinom(n = B, size = nvues, prob = prop[3]),\n  rbinom(n = B, size = nvues, prob = prop[4]))\n# Probabilité que le titre i génère plus de clics\n# avec 1000 vues\ntable(apply(res, 1, which.max))/B\n## \n##      1      2      3 \n## 0.8973 0.0117 0.0910\n# On peut obtenir un intervalle de confiance \n# (ce sont des moyennes)!"
+    "text": "Questions plus générales\nOn peut estimer le taux de conversion (clics/vues) par la proportion empirique.\n\nprop &lt;- with(abtest, clics/vues)\nnvues &lt;- 1000 # nombre de vues\nB &lt;- 1e4L # nombre de simulations Monte Carlo\nres &lt;- cbind(\n  rbinom(n = B, size = nvues, prob = prop[1]),\n  rbinom(n = B, size = nvues, prob = prop[2]),\n  rbinom(n = B, size = nvues, prob = prop[3]),\n  rbinom(n = B, size = nvues, prob = prop[4]))\n# Probabilité que le titre i génère plus de clics\n# avec 1000 vues\ntable(apply(res, 1, which.max))/B\n\n\n     1      2      3 \n0.8973 0.0117 0.0910 \n\n# On peut obtenir un intervalle de confiance \n# (ce sont des moyennes)!"
   },
   {
     "objectID": "CanCOTS-CEGEP.html#à-vous-de-jouer",

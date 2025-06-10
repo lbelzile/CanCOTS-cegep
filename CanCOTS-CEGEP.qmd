@@ -97,11 +97,11 @@ L'ébauche d'une troisième version est disponible en ligne.
 
 1. Enseigner la statistique et la science des données comme des **processus itératifs** permettant de tirer des enseignements des données afin d'éclairer les décisions fondées sur des preuves.
 2. Mettre l'accent sur une **communication écrite et orale effective** des résultats obtenus à partir des données, en prêtant attention à la portée et aux limites des conclusions.
-3. Se concentrer sur la **compréhension conceptuelle** plutôt que sur la manipulation algébrique et les formules.
 
 
 ##  Recommendations du GAISE
 
+3. Se concentrer sur la **compréhension conceptuelle** plutôt que sur la manipulation algébrique et les formules.
 4. Intégrer des **données réelles** avec un contexte et un objectif tout au long du cours. Sélectionner des données significatives et attrayantes pour les étudiants. 
 5. Encourager la réflexion multidimensionnelle.
 

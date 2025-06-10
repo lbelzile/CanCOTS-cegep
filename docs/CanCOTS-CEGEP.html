@@ -209,7 +209,7 @@ Léo Belzile, HEC Montréal
 <h2>Cours de <em>Probabilités et statistique</em></h2>
 <p>La réforme de 2021 au collégial a ajouté le cours de <em>Probabilités et statistique</em> comme cours obligatoire du cursus de <em>Sciences de la nature</em>.</p>
 
-<img data-src="figures/MES_objectifs.png" class="quarto-figure quarto-figure-center r-stretch" width="284"></section>
+<img data-src="figures/MES_objectifs.png" class="quarto-figure quarto-figure-center r-stretch" width="426"></section>
 <section id="objectifs-spécifiques" class="slide level2">
 <h2>Objectifs spécifiques</h2>
 
@@ -240,12 +240,12 @@ Léo Belzile, HEC Montréal
 <ol type="1">
 <li>Enseigner la statistique et la science des données comme des <strong>processus itératifs</strong> permettant de tirer des enseignements des données afin d’éclairer les décisions fondées sur des preuves.</li>
 <li>Mettre l’accent sur une <strong>communication écrite et orale effective</strong> des résultats obtenus à partir des données, en prêtant attention à la portée et aux limites des conclusions.</li>
-<li>Se concentrer sur la <strong>compréhension conceptuelle</strong> plutôt que sur la manipulation algébrique et les formules.</li>
 </ol>
 </section>
 <section id="recommendations-du-gaise-1" class="slide level2">
 <h2>Recommendations du GAISE</h2>
-<ol start="4" type="1">
+<ol start="3" type="1">
+<li>Se concentrer sur la <strong>compréhension conceptuelle</strong> plutôt que sur la manipulation algébrique et les formules.</li>
 <li>Intégrer des <strong>données réelles</strong> avec un contexte et un objectif tout au long du cours. Sélectionner des données significatives et attrayantes pour les étudiants.</li>
 <li>Encourager la réflexion multidimensionnelle.</li>
 </ol>
@@ -564,28 +564,32 @@ Figure&nbsp;5: tranches de 0.25$
 <h2>Résultats de deux tests d’indépendance</h2>
 <p>Le test de Fisher utilise le rapport de cotes comme statistique de test. Si l’on suppose que les décomptes (lignes/colonnes) sont fixes, un argument combinatoire donne une loi hypergéométrique pour la loi d’échantillonnage.</p>
 <div class="cell">
-<pre><code>## 
-##  Fisher's Exact Test for Count Data
-## 
-## data:  tab1
-## p-value = 6e-06
-## alternative hypothesis: true odds ratio is not equal to 1
-## 95 percent confidence interval:
-##  1.48 2.78
-## sample estimates:
-## odds ratio 
-##       2.02</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Fisher's Exact Test for Count Data
+
+data:  tab1
+p-value = 5.851e-06
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 1.477439 2.780937
+sample estimates:
+odds ratio 
+  2.023973 </code></pre>
+</div>
 </div>
 </section>
 <section id="test-du-khi-deux" class="slide level2">
 <h2>Test du khi-deux</h2>
 <p>Le test du khi-deux (sic) utilise une approximation khi-deux à un degré de liberté.</p>
 <div class="cell">
-<pre><code>## 
-##  Pearson's Chi-squared test
-## 
-## data:  tab1
-## X-squared = 21, df = 1, p-value = 5e-06</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  tab1
+X-squared = 20.993, df = 1, p-value = 4.61e-06</code></pre>
+</div>
 </div>
 <p>Les statistiques et les valeurs-p diffèrent! Est-ce important?</p>
 </section>
@@ -593,17 +597,19 @@ Figure&nbsp;5: tranches de 0.25$
 <h2>Comparaison des revenus</h2>
 <p>On peut faire un test-t pour deux échantillons indépendants pour comparer les revenus.</p>
 <div class="cell">
-<pre><code>## 
-##  Two Sample t-test
-## 
-## data:  montant by groupe
-## t = -4, df = 867, p-value = 2e-04
-## alternative hypothesis: true difference in means between group ouvert and group fixe is not equal to 0
-## 95 percent confidence interval:
-##  -2.945 -0.914
-## sample estimates:
-## mean in group ouvert   mean in group fixe 
-##                 6.77                 8.70</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  montant by groupe
+t = -3.7292, df = 867, p-value = 0.0002046
+alternative hypothesis: true difference in means between group ouvert and group fixe is not equal to 0
+95 percent confidence interval:
+ -2.944756 -0.913908
+sample estimates:
+mean in group ouvert   mean in group fixe 
+            6.770885             8.700216 </code></pre>
+</div>
 </div>
 <p>Conclusions et limitations de l’étude?</p>
 </section>
@@ -727,9 +733,11 @@ Figure&nbsp;5: tranches de 0.25$
 <span id="cb5-21"><a></a>}</span>
 <span id="cb5-22"><a></a><span class="co"># Probabilité sous H0 d'obtenir un résultat plus grand?</span></span>
 <span id="cb5-23"><a></a><span class="co"># remplacée par proportion empirique</span></span>
-<span id="cb5-24"><a></a><span class="fu">mean</span>(loinulle <span class="sc">&gt;=</span> test)</span>
-<span id="cb5-25"><a></a><span class="do">## [1] 0.377</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-24"><a></a><span class="fu">mean</span>(loinulle <span class="sc">&gt;=</span> test)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.377</code></pre>
+</div>
 </div>
 
 <img data-src="CanCOTS-CEGEP_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
@@ -737,22 +745,24 @@ Figure&nbsp;5: tranches de 0.25$
 <h2>Questions plus générales</h2>
 <p>On peut estimer le taux de conversion (clics/vues) par la proportion empirique.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>prop <span class="ot">&lt;-</span> <span class="fu">with</span>(abtest, clics<span class="sc">/</span>vues)</span>
-<span id="cb6-2"><a></a>nvues <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># nombre de vues</span></span>
-<span id="cb6-3"><a></a>B <span class="ot">&lt;-</span> <span class="fl">1e4</span>L <span class="co"># nombre de simulations Monte Carlo</span></span>
-<span id="cb6-4"><a></a>res <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
-<span id="cb6-5"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">1</span>]),</span>
-<span id="cb6-6"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">2</span>]),</span>
-<span id="cb6-7"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">3</span>]),</span>
-<span id="cb6-8"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">4</span>]))</span>
-<span id="cb6-9"><a></a><span class="co"># Probabilité que le titre i génère plus de clics</span></span>
-<span id="cb6-10"><a></a><span class="co"># avec 1000 vues</span></span>
-<span id="cb6-11"><a></a><span class="fu">table</span>(<span class="fu">apply</span>(res, <span class="dv">1</span>, which.max))<span class="sc">/</span>B</span>
-<span id="cb6-12"><a></a><span class="do">## </span></span>
-<span id="cb6-13"><a></a><span class="do">##      1      2      3 </span></span>
-<span id="cb6-14"><a></a><span class="do">## 0.8973 0.0117 0.0910</span></span>
-<span id="cb6-15"><a></a><span class="co"># On peut obtenir un intervalle de confiance </span></span>
-<span id="cb6-16"><a></a><span class="co"># (ce sont des moyennes)!</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>prop <span class="ot">&lt;-</span> <span class="fu">with</span>(abtest, clics<span class="sc">/</span>vues)</span>
+<span id="cb7-2"><a></a>nvues <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># nombre de vues</span></span>
+<span id="cb7-3"><a></a>B <span class="ot">&lt;-</span> <span class="fl">1e4</span>L <span class="co"># nombre de simulations Monte Carlo</span></span>
+<span id="cb7-4"><a></a>res <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
+<span id="cb7-5"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">1</span>]),</span>
+<span id="cb7-6"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">2</span>]),</span>
+<span id="cb7-7"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">3</span>]),</span>
+<span id="cb7-8"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">4</span>]))</span>
+<span id="cb7-9"><a></a><span class="co"># Probabilité que le titre i génère plus de clics</span></span>
+<span id="cb7-10"><a></a><span class="co"># avec 1000 vues</span></span>
+<span id="cb7-11"><a></a><span class="fu">table</span>(<span class="fu">apply</span>(res, <span class="dv">1</span>, which.max))<span class="sc">/</span>B</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     1      2      3 
+0.8973 0.0117 0.0910 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># On peut obtenir un intervalle de confiance </span></span>
+<span id="cb9-2"><a></a><span class="co"># (ce sont des moyennes)!</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="à-vous-de-jouer" class="slide level2">

@@ -1,3 +1,5 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - CanCOTS-CEGEP.pdf
