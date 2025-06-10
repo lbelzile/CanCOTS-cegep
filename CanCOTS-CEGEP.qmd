@@ -1,0 +1,824 @@
+---
+title: "Probabilités et statistique"
+author: "Léo Belzile, HEC Montréal"
+subtitle: "Atelier parallèle - CanCOTS"
+date: "2025-06-10"
+date-format: "dddd D MMM YYYY"
+eval: true
+cache: true
+echo: true
+lang: fr
+standalone: true
+format:
+  revealjs:
+    slide-number: true
+    html-math-method: mathjax
+    preview-links: auto
+    theme: [simple, hecmontreal.scss]
+    title-slide-attributes:
+      data-background-color: "#002855"
+    logo: "figures/logo_hec_montreal_bleu_web.png"
+---
+
+
+```{r include=FALSE}
+
+hecbleu <- c("#002855")
+fcols <- c(gris = "#888b8d",
+           bleu = "#0072ce",
+           aqua = "#00aec7",
+           vert = "#26d07c",
+           rouge = "#ff585d",
+           rose = "#eb6fbd",
+           jaune = "#f3d03e")
+pcols <- c(gris = "#d9d9d6",
+           bleu = "#92c1e9",
+           agua = "#88dbdf",
+           vert = "#8fe2b0",
+           rouge = "#ffb1bb",
+           rose = "#eab8e4",
+           jaune = "#f2f0a1")
+library(ggplot2)
+theme_set(theme_classic())
+library(patchwork)
+knitr::opts_chunk$set(fig.retina = 3, collapse = TRUE)
+options(digits = 3, width = 75)
+```
+
+## Cours de *Probabilités et statistique*
+
+La réforme de 2021  au collégial a ajouté le cours de *Probabilités et statistique* comme cours obligatoire du cursus de *Sciences de la nature*.
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-align: 'center'
+knitr::include_graphics("figures/MES_objectifs.png")
+```
+
+## Objectifs spécifiques
+
+```{r}
+#| eval: true
+#| echo: false
+#| out-width: '70%'
+#| fig-align: 'center'
+knitr::include_graphics("figures/MES_PS_1.png")
+```
+
+## Objectifs spécifiques
+
+```{r}
+#| eval: true
+#| echo: false
+#| out-width: '50%'
+#| fig-align: 'center'
+knitr::include_graphics("figures/MES_PS_2.png")
+```
+
+
+## Évolution du cours
+
+Aucune modification depuis des décennies?
+
+- La science des données est en vogue.
+- Les données (et leur collecte) sont devenues omniprésentes (moins de sondage, plus de collecte en ligne).
+- Les langages (et logiciels) de programmation libre accès (R Python, etc.) se sont démocratisés. Certains programmes préuniversitaires ont des cours de programmation.
+- Certaines notions (statistiques descriptives) sont désormais au programme du secondaire.
+
+## Rapports GAISE
+
+> American Statistical Association (2016), Guidelines for Assessment and Instruction in Statistics Education (GAISE) College Report, Alexandria, VA: American Statistical Association. [hyperlien](https://www.amstat.org/education/guidelines-for-assessment-and-instruction-in-statistics-education-(gaise)-reports), 2e édition. 
+
+L'ébauche d'une troisième version est disponible en ligne.
+
+## Recommendations du GAISE
+
+
+1. Enseigner la statistique et la science des données comme des **processus itératifs** permettant de tirer des enseignements des données afin d'éclairer les décisions fondées sur des preuves.
+2. Mettre l'accent sur une **communication écrite et orale effective** des résultats obtenus à partir des données, en prêtant attention à la portée et aux limites des conclusions.
+3. Se concentrer sur la **compréhension conceptuelle** plutôt que sur la manipulation algébrique et les formules.
+
+
+##  Recommendations du GAISE
+
+4. Intégrer des **données réelles** avec un contexte et un objectif tout au long du cours. Sélectionner des données significatives et attrayantes pour les étudiants. 
+5. Encourager la réflexion multidimensionnelle.
+
+
+##  Recommendations du GAISE
+
+6. Incorporer des **logiciels/applications** pour explorer des concepts et travailler avec des données.
+7. Insister sur la conduite responsable et éthique dans la collecte et l'utilisation des données et dans leur analyse.
+
+
+##  Recommendations du GAISE
+
+8. Employer des méthodes pédagogiques fondées sur des données probantes qui engagent activement les étudiants dans le processus d'apprentissage.
+9. Utiliser une variété d'évaluations formatives et sommatives pour améliorer l'enseignement et l'apprentissage.
+10. Mettre en oeuvre une conception de cours qui utilise des stratégies inclusives pour favoriser un sentiment d'appartenance.
+
+
+<!--
+## Trois pilliers de l'enseignement
+
+> Ben Zvi, D. et J. Garfield (2004). *The Challenge of Developing Statistical Literacy, Reasoning and Thinking*, Springer Dordrecht, [DOI: 10.1007/1-4020-2278-6](https://doi.org/10.1007/1-4020-2278-6)
+
+- littéracie statistique
+- raisonnement statistique
+- pensée statistique
+
+
+## Définitions {.smaller}
+
+- **Littéracie statistique**: 
+    - compréhension des concepts, du vocabulaire et de la notion de probabilité comme mesure de l'incertitude. 
+    - capacité à organiser, structurer et travailler avec différentes représentations des données.
+- **Raisonnement statistique**: 
+    - interprétation de résultats et de statistiques (par exemples, mesures de tendances centrales).
+    - établissements de liens entre les concepts.
+- **Pensée statistique**: comprendre les grandes idées, et le processus de contextualisation de problèmes et d'hypothèses, la collecte de données, l'évaluation critique de résultats.
+
+-->
+
+## Science des données
+
+La plupart des concepts enseignées ne semblent pas reliés dans les ouvrages de référence.
+
+- les statistiques descriptives et les graphiques / visualisation servent dans l'**analyse exploratoire**.
+- les statistiques descriptives sont des **estimateurs** et servent à la constructions de tests.
+- les lois de probabilité interviennent souvent dans la loi d'échantillonnage de statistiques (tests-$t$ ou $\chi^2$) ou pour le calcul de valeurs-p (combinatoire), ou pour des variables réponses.
+
+
+
+
+## Concepts fondamentaux pour l'inférence {.smaller}
+
+Les statistiques de tests sont toutes construites selon les mêmes principes.
+
+Le principe clé sous-jacent est la **comparaison de modèles**
+
+- choisir un modèle pour les données
+- formuler une hypothèse nulle et alternative
+- estimer le modèle sous l'hypothèse nulle $\mathscr{H}_0$ et alternative $\mathscr{H}_a$
+- calculer une statistique standardisée (résumé de la preuve)
+- comparaison avec un étalon de mesure (loi d'échantillonage sous $\mathscr{H}_0$)
+- transformation à l'échelle uniforme (valeur-$p$) et conclusion
+
+C'est difficile au niveau collégial parce que les modèles considérés sont souvent implicites (par exemple, la régression de Poisson pour tableaux de contingence).
+
+
+
+## Inférence basée sur la simulation
+
+> Cobb, G. W. (2007). The Introductory Statistics Course: A Ptolemaic Curriculum? Technology Innovations in Statistics Education, 1(1). [DOI:  `10.5070/T511000028`](http://dx.doi.org/10.5070/T511000028)
+
+> Mine Çetinkaya-Rundel and Johanna Hardin (2024). Introduction to Modern Statistics, 2e édition, https://www.openintro.org/book/ims/
+
+## Concepts clés 1
+
+- Compréhension de l'incertitude et de la notion d'aléatoire d'un test d'hypothèse
+
+Une statistique est une fonction des données (supposée ici unidimensionnelle). 
+
+- si on prend comme intrant un **échantillon aléatoire simple** tirée d'une population commune, la sortie est aussi une variable aléatoire.
+
+
+
+## Concepts clés 2
+
+La moyenne d'un échantillon est moins variable qu'une observation tirée au hasard
+
+- L'information s'accumule à un rythme linéaire si les données sont indépendantes.
+- La variance diminue par un facteur équivalent à la taille de l'échantillon, $n$.
+
+
+## Cohérence d'estimateurs {.smaller}
+
+Outre le théorème central limite, la loi des grands nombres joue un rôle clef.
+
+
+```{r}
+#| label: uniformsamp2
+#| fig-width: 8
+#| fig-height: 5
+#| fig-align: 'center'
+#| echo: false
+set.seed(1234)
+ntot <- (10+100+1000+10000)
+df <- data.frame(
+  x = c(sample.int(n = 10, 
+                   size = ntot,
+                   replace = TRUE),
+        round(TruncatedNormal::rtnorm(n = ntot, 
+                                      sd = 4, 
+                                      mu = 6, 
+                                      lb = 1, 
+                                      ub = 10))),
+  group = rep(factor(c("null","alternative")), 
+              each = ntot),
+  sample = rep(factor(c(rep(1,10),
+                    rep(2,100),
+                    rep(3, 1000),
+                    rep(4, 1e4)),
+                    labels = c("10","100","1000","10 000")), length.out = 2*ntot))
+g1 <- ggplot(df |> dplyr::filter(group == "alternative"), aes(x = x, y = after_stat(density))) +
+  geom_hline(yintercept = 0.1, col = "gray", lty = 2) +
+  geom_histogram(bins = 10, color="white", fill = 2)+
+  facet_wrap(~sample, nrow = 1,
+             labeller = label_wrap_gen(multi_line=FALSE))+
+  labs(y = "proportion", x = "") +
+  scale_x_continuous(breaks=c(0,5,10)) + 
+  theme_classic()
+g2 <- ggplot(df |> dplyr::filter(group == "null"), aes(x = x, y = after_stat(density))) +
+  geom_hline(yintercept = 0.1, col = "gray", lty = 2) +
+  geom_histogram(bins = 10, color="white", fill = 4)+
+  facet_wrap(~sample, nrow = 1,
+             labeller = label_wrap_gen(multi_line=FALSE))+
+  labs(y = "proportion", x = "") +
+  scale_x_continuous(breaks=c(0,5,10)) + 
+  theme_classic()
+g2 / g1 
+```
+
+
+## Variabilité de la moyenne
+
+
+```{r sampvar, echo = FALSE, eval = TRUE, fig.width = 8, fig.height = 3.5, cache = TRUE}
+set.seed(1234)
+library(gganimate)
+nrep <- 10
+samp <- data.frame(dat = rgamma(40*nrep, shape = 10, rate = 2),
+                   group = factor(rep(letters[1:4], each = 10L*nrep)),
+                   rep = factor(rep(1:nrep, length.out = 40*nrep)))
+ggplot(data = samp,
+       aes(x = group, y = dat, col = group)) +
+  geom_hline(yintercept = 5) +
+  geom_point() +
+  geom_jitter() +
+  labs(col = "sample", y = "observations", x = "groupe") +
+  stat_summary(fun = mean,
+               geom = "point",
+               shape = 95,
+               size = 20) + 
+  MetBrewer::scale_colour_met_d(name = "Hiroshige") + 
+  theme_bw() +
+  theme(legend.position = "none") + 
+  transition_states(
+    rep,
+    transition_length = 2,
+    state_length = 10
+  )
+```
+
+
+```{r}
+#| eval: false
+#| echo: false
+#| label: fig-loi-nulle
+#| fig-cap: "Histogramme de la loi d'échantillonage de 25 tirages Bernoulli indépendants avec $p=0.3$, et approximation normale"
+nobs <- 25L
+B <- 10000L
+pr <- 0.3
+n <- rbinom(n = B, size = nobs, prob = pr)
+barplot(table(n))
+moy_binom <- n / nobs         
+var_binom <- moy_binom * (1 - moy_binom)
+errtype_moy_binom <- sqrt(var_binom / nobs)
+wald_stat <- (moy_binom - 0.3) / errtype_moy_binom
+hist(wald_stat,
+     probability = TRUE,
+     main = "",
+     xlab = "statistique de test",
+     ylab = "densité")
+curve(
+  expr = dnorm(x, mean = 0, sd = 1),
+  from = 0,
+  to = 10, 
+  add = TRUE)
+
+```
+
+## Concept clé 3
+
+Éviter le plus possible le catalogue de statistiques!
+
+
+```{r}
+#| eval: true
+#| echo: false
+#| out-width: '70%'
+#| fig-cap: "Arbre de décision, tirée de McElreath (2015), Figure 1.1."
+#| fig-align: 'center'
+knitr::include_graphics("figures/McElreath_Flowchart.png")
+```
+
+## Statistique de Wald
+
+La plupart des statistiques appartiennent à une famille. 
+
+L'exemple canonique, la statistique de Wald, est omniprésente (test-$t$, proportions, coefficient de régression linéaire, corrélation, etc.)
+
+
+Pour un paramètre $\theta$ donné
+\begin{align*}
+W = \frac{\text{estimation} - \text{valeur postulée}}{\text{erreur-type (estimation)}} = \frac{\widehat{\theta} - \theta_0}{\mathsf{se}(\widehat{\theta})}.
+\end{align*}
+
+## En moyenne...
+
+Si la statistique est une moyenne et qu'on peut appliquer le théorème central limite, alors une approximation normale est valide en grand échantillon.
+
+Le nombre $n=30$ n'a rien de magique: l'approximation est typiquement aussi bonne pour $n=29.$
+
+Ce résultat est valide sous des conditions très générales et est facile à représenter visuellement avec des animations ([applet](http://195.134.76.37/applets/AppletCentralLimit/Appl_CentralLimit2.html)).
+
+## Distribution quelconque
+
+Données de durée de trajet pour TGV entre Madrid et Barcelone.
+
+```{r}
+#| label: fig-renfeclt
+#| echo: false
+#| fig-cap: "Distribution empirique des temps de trajet de TGV."
+data(renfe, package = "hecmodstat")
+duree <- renfe$duree[renfe$type %in% c("AVE","AVE-TGV")]
+ggplot(data = data.frame(duree), aes(x=duree)) +
+  geom_bar() + 
+  xlab("durée (en minutes)") +
+  ylab("fréquence") +
+  scale_y_continuous(limits = c(0, NA), expand = expansion()) +
+  theme_classic()
+```
+
+## Théorème central limite en image
+
+```{r}
+#| label: fig-renfemeanCLT
+#| echo: false
+#| fig-align: 'center'
+#| fig-cap: "Représentation graphique du théorème central limite (20 obs), avec moyennes de $n=5$, et $n=5, 20, 100$ observations."
+#| out-width: '90%'
+set.seed(1234)
+moy5 <- data.frame(moy = replicate(n = 10000, expr = mean(sample(duree, size = 5, replace = FALSE))))
+moy20 <- data.frame(moy = replicate(n = 10000, expr = mean(sample(duree, size = 20, replace = FALSE))))
+moy100 <- data.frame(moy = replicate(n = 20000, expr = mean(sample(duree, size = 100, replace = FALSE))))
+
+p0 <- ggplot(data = (df20 <- data.frame(duree = sample(duree, 20))), aes(x=duree)) +
+  geom_bar() + 
+  geom_vline(xintercept = mean(df20$duree), col = "red") + 
+  xlab("durée (en minutes)") +
+  ylab("fréquence") +
+  theme_classic()
+
+p1 <- ggplot(data = moy5) + 
+  geom_histogram(bins = 30, aes(x=moy, y=after_stat(density)), alpha = 0.2) + 
+  stat_function(fun = dnorm, col = "blue", args = list(mean = mean(duree), sd = sqrt(var(duree))/sqrt(5)), n = 1000) +
+  xlab("durée moyenne (en minutes)") +
+  ylab("densité") +
+  scale_y_continuous(limits = c(0, NA), expand = expansion()) +
+  theme_classic()
+
+p2 <- ggplot(data = moy20) + 
+  geom_histogram(data = moy20, bins = 30, aes(x=moy, y=after_stat(density)), alpha = 0.2) + 
+  stat_function(fun = dnorm, col = "blue", args = list(mean = mean(duree), sd = sqrt(var(duree))/sqrt(20)), n = 1000) +
+  xlab("durée moyenne (en minutes)") +
+  ylab("densité") +
+  scale_y_continuous(limits = c(0, NA), expand = expansion()) +
+  theme_classic()
+
+p3 <- ggplot(data = moy100) + 
+  geom_histogram(bins = 50, aes(x=moy, y=after_stat(density)), alpha = 0.2) + 
+  stat_function(fun = dnorm, col = "blue", args = list(mean = mean(duree), sd = sqrt(var(duree))/10), n = 1000)  +
+  geom_histogram(data = moy20, bins = 30, aes(x=moy, y=after_stat(density)), alpha = 0.2) + 
+  stat_function(fun = dnorm, col = "blue", args = list(mean = mean(duree), sd = sqrt(var(duree))/sqrt(20)), n = 1000) +
+   geom_histogram(bins = 30, aes(x=moy, y=after_stat(density)), alpha = 0.2) + 
+  stat_function(fun = dnorm, col = "blue", args = list(mean = mean(duree), sd = sqrt(var(duree))/sqrt(5)), n = 1000) +
+  xlim(c(142,198)) + 
+  scale_y_continuous(limits = c(0, NA), expand = expansion()) +
+  xlab("durée moyenne (en minutes)") +
+  ylab("densité") +
+  theme_classic()
+
+(p0 + p1 + p3)
+```
+
+## Erreur-type 
+
+En pratique, il convient de standardiser l'estimateur en le divisant par son erreur-type.
+
+Rappel: la statistique est une variable aléatoire!
+
+Si on considère des données indépendantes d'une population de moyenne théorique $\mu$ et de variance $\sigma^2$, alors l'erreur-type de la **moyenne** est $\sigma/\sqrt{n}$.
+
+
+## Cas spécifiques
+
+La variance est inconnue, il faut donc l'estimer.
+
+- Si on utilise une distribution pour laquelle la variance est une fonction de la moyenne (loi binomiale avec probabilité de succès $p$), alors on sait que $\sigma^2=p(1-p)$ et on utilise $\widehat{p}$, la proportion empirique.
+- Sinon, on peut remplacer $\sigma^2$ par une estimation sans biais de la variance, $s^2.$
+- Plus généralement, avec la méthode du maximum de vraisemblance, on obtient les erreurs-type à partir de la matrice d'information.
+
+
+## Statistiques et loi d'échantillonnage
+
+La loi nulle asymptotique est la loi d'échantillonnage de la statistique quand notre hypothèse nulle est vraie.
+
+Cela correspond typiquement à un modèle duquel on peut simuler des observations.
+
+- par exemple, dans un test-t pour deux échantillons, on peut permuter les libellés de groupes. Voir l'article interactif sur le [test de permutation](https://www.jwilber.me/permutationtest/) de Jared Wilber.
+
+## Intervalles de confiance {.smaller}
+
+- Si on calcule un intervalle de confiance pour un échantillon donné, la vraie valeur (inconnue) du paramètre $\theta$ est soit dans l'intervalle de confiance, soit pas: il n'y a pas de notion de probabilité!
+- Le terme confiance s'applique à la *procédure* que l'on utilise pour calculer l'intervalle, et non pas dans les valeurs des bornes obtenues pour un échantillon en particulier.
+- Si on répète l'expérience plusieurs fois, et qu'on calcule un intervalle de confiance de niveau $1-\alpha$ à chaque reprise, alors en moyenne une proportion de $1-\alpha$ des intervalles contiendra la vraie valeur de $\theta$ parmi toutes les répétitions.
+
+
+## Propriétés fréquentistes des intervalles de confiance
+
+```{r}
+#| label: fig-intconf
+#| eval: true
+#| echo: false
+#| cache: true
+#| fig-width: 8
+#| fig-height: 5
+#| fig-cap: "Intervalles de confiance à 95% pour la moyenne d'une population normale standard pour 100 échantillons aléatoires. En moyenne, 5% de ces intervalles
+#|   (en rouge) n'incluent pas la vraie valeur de la moyenne de zéro."
+set.seed(1234)
+interv <- t(sapply(1:100, function(i){t.test(rnorm(1000), mu=0)$conf.int}))
+confint_dat <- data.frame(lower = interv[,1],
+                          upper = interv[,2],
+                          replicate = 1:100,
+                          covers = factor((interv[,1] > 0) | (interv[,2] < 0), labels = c("couvre","ne couvre pas")))
+confint_dat$covers <- relevel(confint_dat$covers, ref = "ne couvre pas")
+ggplot(data = confint_dat,
+       aes(x = factor(replicate))) +
+  geom_hline(yintercept = 0) +
+  geom_segment(mapping = aes(y = lower, yend = upper, x = replicate, xend = replicate, col = covers)) +
+  # scale_color_discrete(c("black","red")) +
+  labs(x = "no de l'étude de réplication",
+       y = "",
+       col = "") +
+  theme_classic() +
+  theme(legend.position = "bottom",
+        axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.grid.major.y = element_blank())
+```
+
+
+
+## Inférence basée sur la simulation
+
+En général, il faut pouvoir programmer pour faire les calculs. Personne ne fait des statistiques à la main! 
+
+Dans les programmes comme Sciences, informatique et mathématique, il est probablement plus facile d'incorporer Python, R ou un autre outil.
+
+
+## Applet
+
+- Ressources créées par l'équipe de l'UBC: [`statspace.elearning.ubc.ca`](https://statspace.elearning.ubc.ca)
+- [Applications Shiny](https://antoinesoetewey.shinyapps.io/statistics-201/)
+- [Collection de Rossman/Chance](https://www.rossmanchance.com/applets/)
+- [Introduction to Statistical Investigations](https://www.isi-stats.com/isi2nd/ISIapplets2021.html)
+- [Distributions SOCR](https://myumi.ch/bvkpx)
+
+La plupart ne sont malheureusement disponibles qu'en anglais.
+
+## Processus itératif
+
+```{r}
+#| eval: true
+#| echo: false
+#| out-width: '70%'
+#| fig-align: 'center'
+knitr::include_graphics("figures/Data_Science_Framework.png")
+```
+
+
+## Exemple: suggestion de montants de dons {.smaller}
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Moon, A. et EM VanEpps (2023). *Giving Suggestions: Using Quantity Requests to Increase Donations*, Journal of Consumer Research, 50(1), 190–210. [`doi:10.1093/jcr/ucac047`](https://doi.org/10.1093/jcr/ucac047)
+
+> À travers sept études, nous fournissons des preuves qu'offrir des choix multiples lors de sollicitation pour des dons (par ex., 5\$, 10\$, 15\$) augmente le montant moyen des dons comparativement à une question ouverte.
+
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| eval: true
+#| echo: false
+#| out-width: '100%'
+knitr::include_graphics("figures/Moon_VanEpps-giving.png")
+```
+
+:::
+
+
+::::
+
+## Données de l'étude 1 {.smaller}
+
+Les [données colligées](https://researchbox.org/54) sur $n=869$ participant(e)s incluent les variables suivantes:
+
+- `avant`: un indicateur binaire qui indique si la personne a déjà donné à l'organisme de charité par le passé
+- `don`: indicateur binaire si don
+- `groupe`: groupe expérimental, soit question ouverte ou quantité fixe suggérée
+- `montant`: montant du don (en dollars), valeur manquante si `don=0` (min 0, max 25).
+
+
+:::{style="font-size: 1.5em; color: #002855; text-align: center"}
+
+**Rétro-ingénierie**: quelles questions scientifiques pouvez-vous envisager poser avec ces variables?
+
+:::
+
+
+## Visualisation: histogramme du montant des dons
+
+
+```{r}
+#| eval: true
+#| echo: false
+#| fig-cap: 
+#|   - "méthode de Sturges"
+#|   - "tranches de 0.25$"
+#| label: fig-histo-dons
+#| fig-align: "center"
+#| out-width: '100%'
+#| fig-width: 8
+#| fig-height: 6
+#| layout-ncol: 2
+data(MV23_S1, package = "hecedsm")
+dons <- MV23_S1 |>
+  dplyr::mutate(
+    condition = factor(condition, 
+                       levels = c("open-ended","quantity"), 
+                       labels = c("ouvert","fixe")),
+    donate = factor(donate, levels = c(0,1), labels = c("non","oui")),
+    before = factor(before, levels = c(0,1), labels = c("non","oui") ),
+    amount = ifelse(is.na(amount), 0, amount)) |>
+  dplyr::rename(don = donate,
+                groupe = condition,
+                montant = amount,
+                antécédent = before)
+tab1 <- with(dons, table(groupe, don))
+tab2 <- with(dons, table(antécédent, don))
+par(bty = "l")
+tinyplot::plt(~montant | groupe,
+              data = dons,
+              type = "histogram",
+              xlab = "montant des dons (en dollars)",
+              ylab = "décompte",
+              legend = "topright",
+              bty = "l")
+tinyplot::plt(~montant | groupe, 
+              data = dons, 
+              type = "histogram", 
+              breaks = seq(0, 25, by = 0.25),
+              xlab = "montant des dons (en dollars)", 
+              ylab = "décompte",
+              legend = "topright",
+              bty = "l")
+# hist(MV23_S1$montant, ,breaks = seq(0, 25, by = 0.25), main = "", )
+# mosaicplot(tableau,main = "")
+```
+
+Qu'est-ce que la visualisation révèle?
+
+## Tableaux de contingence
+
+```{r}
+#| eval: true
+#| echo: false
+#| layout-nrow: 1
+#| layout-ncol: 2
+knitr::kable(tab1, caption = "Nombre de dons (colonne) par groupe expérimental (ligne)")
+knitr::kable(tab2,
+             caption = "Dons: antécédent (ligne) versus actuel (colonne)",)
+```
+
+## Résultats de deux tests d'indépendance 
+
+Le test de Fisher utilise le rapport de cotes comme statistique de test. Si l'on suppose que les décomptes (lignes/colonnes) sont fixes, un argument combinatoire donne une loi hypergéométrique pour la loi d'échantillonnage.
+
+```{r}
+#| eval: true
+#| echo: false
+fisher.test(tab1)
+```
+
+## Test du khi-deux 
+
+Le test du khi-deux (sic) utilise une approximation khi-deux à un degré de liberté.
+
+```{r}
+#| eval: true
+#| echo: false
+chisq.test(tab1, correct = FALSE)
+```
+
+Les statistiques et les valeurs-p diffèrent! Est-ce important?
+
+## Comparaison des revenus
+
+On peut faire un test-t pour deux échantillons indépendants pour comparer les revenus.
+
+```{r}
+#| eval: true
+#| echo: false
+t.test(montant ~ groupe, var.equal = TRUE, data = dons)
+```
+
+Conclusions et limitations de l'étude?
+
+## Test de permutation et autoamorçage
+
+```{r}
+#| eval: true
+#| echo: true
+#| fig-align: 'center'
+library(infer)
+ttest <- dons |> t_test(formula = montant ~ groupe,
+                order = c("ouvert", "fixe"))
+null_dist <- dons |> 
+   specify(montant ~ groupe) |>
+   hypothesize(null = "independence") |>
+   generate(reps = 1000, type = "permute") |>
+   calculate(stat = "t", order = c("ouvert", "fixe"))
+visualize(null_dist) +
+  shade_p_value(obs_stat = ttest, direction = "two-sided") +
+  theme_classic()
+```
+
+
+## Tests A/B et titres des nouvelles {.smaller}
+
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```{r}
+#| eval: true
+#| echo: false
+#| out-width: '100%'
+knitr::include_graphics("figures/upworthy.png")
+```
+
+:::
+
+
+::: {.column width="40%"}
+Upworthy.com, un éditeur de médias américain, a révolutionné la publicité en ligne en effectuant des tests A/B systématiques pour comparer les différentes formulations des titres, l'emplacement du texte et de l'image afin de déterminer ce qui attire le plus l'attention. 
+
+Les [archives d'Upworthy](https://upworthy.natematias.com/) contiennent les résultats de 22743 expériences, avec un taux moyens de clics de 1.58% (écart type de 1.23%).
+
+:::
+
+::::
+
+
+
+## Titres d'articles {.smaller}
+
+Voici les résultats d'un test A/B du 23 novembre 2014 qui comparait quatre titres pour un atelier de Sesame Street. L'épisode traitait d'enfants dont les parents étaient incarcérés en prison, où ils les visitaient. Les quatre choix considérés étaient:
+
+> 1. Some Don't Like It When He Sees His Mom. But To Him? Pure Joy. Why Keep Her From Him?
+> 2. They're Not In Danger. They're Right. See True Compassion From The Children Of The Incarcerated.
+> 3. Kids Have No Place In Jail ... But In This Case, They *Totally* Deserve It.
+> 4. Going To Jail *Should* Be The Worst Part Of Their Life. It's So Not. Not At All.
+
+
+
+## Tests A/B: exemple de Sesame street
+
+```{r}
+#| label: upworthy
+#| eval: true
+#| echo: false
+abtest <- tibble::tibble(
+   titre = factor(paste0("H",1:4)),
+   vues = c(3060L, 2982L, 3112L, 3083L), 
+   clics = c(49L, 20L, 31L, 9L))
+knitr::kable(abtest)
+```
+
+## Méthodes de rééchantillonage
+
+Le traffic est redirigé de manière aléatoire: on pourrait vérifier la répartition des 12 237 vues avec un test d'ajustement.
+
+- On calcule la statistique de test $T$ sur l'échantillon.
+- Sous $\mathscr{H}_0$, cela revient à simuler des tirages d'une loi multinomale avec $p=(1/4, 1/4, 1/4, 1/4)$. Pour chaque tirage du modèle, on recalcule la statistique. On répète $B$ fois.
+- On compare les résultats: la valeur-p est estimée par la proportion empirique des $B$ simulations qui excèdent $T$.
+
+## Code pour Monte Carlo
+
+```{r}
+#| eval: true
+#| echo: true
+#| code-fold: true
+B <- 1000L # nombre de simulations Monte Carlo
+vues <- c(3060L, 2982L, 3112L, 3083L)
+total <- sum(vues) # décompte total
+# Fonction calculant la statistique de test
+stat_khideux_unif <- function(
+    x, # vecteur de décomptes
+    prob = rep(1/length(x), length(x)), # probabilité postulée 
+    n = sum(x)) # décompte total
+  { # E = n*prob, O = x
+  sum((x - n*prob)^2/(n*prob)) # statistique du score
+}
+
+# On remplace l'approximation khi-deux avec 3 ddl
+# par une approximation Monte Carlo
+loinulle <- numeric(B) # contenant
+test <- stat_khideux_unif(vues) # stat avec données originales
+# Tirages sous H0
+for(i in 1:B){
+  x0 <- c(rmultinom(n = 1, size = total, prob = rep(0.25, 4)))
+  loinulle[i] <- stat_khideux_unif(x0)
+}
+# Probabilité sous H0 d'obtenir un résultat plus grand?
+# remplacée par proportion empirique
+mean(loinulle >= test)
+```
+
+```{r}
+#| figure-align: 'center'
+#| eval: true
+#| echo: false
+# Représentation graphique
+plot(
+  density(loinulle, from = 0), 
+  xlab = "statistique",
+  main = "", 
+  ylab = "densité", 
+  panel.first = abline(v = test, col = 2), 
+  bty = "l")
+curve(
+  expr = dchisq(x, df = 3),
+  n = 1001,
+  from = 0, 
+  to = 25, 
+  lty = 2, 
+  add = TRUE)
+```
+
+## Questions plus générales
+
+On peut estimer le taux de conversion (clics/vues) par la proportion empirique.
+
+```{r}
+prop <- with(abtest, clics/vues)
+nvues <- 1000 # nombre de vues
+B <- 1e4L # nombre de simulations Monte Carlo
+res <- cbind(
+  rbinom(n = B, size = nvues, prob = prop[1]),
+  rbinom(n = B, size = nvues, prob = prop[2]),
+  rbinom(n = B, size = nvues, prob = prop[3]),
+  rbinom(n = B, size = nvues, prob = prop[4]))
+# Probabilité que le titre i génère plus de clics
+# avec 1000 vues
+table(apply(res, 1, which.max))/B
+# On peut obtenir un intervalle de confiance 
+# (ce sont des moyennes)!
+```
+
+
+## À vous de jouer
+
+On vous propose de travailler avec nous
+
+- l’incorporation de jeux de données thématiques,
+- l’introduction aux langages de programmation pour la réalisation de tests et les calculs,
+- l’utilisation de simulations et d’applications interactives pour illustrer les concepts et résultats
+- la construction de bases d’exercices (interactifs ou papiers).
+
+
+
+
+## Données ouvertes
+
+- Sites gouvernementaux:  [Données Québec](https://www.donneesquebec.ca/), [Statistique Canada](https://www150.statcan.gc.ca/n1/fr/type/donnees), [data.gov.uk](https://www.data.gov.uk/)
+- Répertoires de partages de données d'articles scientifiques: [ResearchBox](https://researchbox.org/), [OSF](https://osf.io/)
+- Données distribuées avec paquets **R** [`Rdatasets`](https://vincentarelbundock.github.io/Rdatasets/)
+
+Les données plus récentes ou réalistes nécessitent un prétraitement ou nettoyage.
+
+## Logiciels
+
+- [R](https://cran.r-project.org/)
+- [Python](https://www.python.org/) via [statmodels](https://www.statsmodels.org/stable/index.html)
+- [Jamovi](https://www.jamovi.org/)
+- [JASP](https://jasp-stats.org/)

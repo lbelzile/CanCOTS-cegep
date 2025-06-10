@@ -1,0 +1,324 @@
+[
+  {
+    "objectID": "CanCOTS-CEGEP.html#cours-de-probabilités-et-statistique",
+    "href": "CanCOTS-CEGEP.html#cours-de-probabilités-et-statistique",
+    "title": "Probabilités et statistique",
+    "section": "Cours de Probabilités et statistique",
+    "text": "Cours de Probabilités et statistique\nLa réforme de 2021 au collégial a ajouté le cours de Probabilités et statistique comme cours obligatoire du cursus de Sciences de la nature."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#objectifs-spécifiques",
+    "href": "CanCOTS-CEGEP.html#objectifs-spécifiques",
+    "title": "Probabilités et statistique",
+    "section": "Objectifs spécifiques",
+    "text": "Objectifs spécifiques"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#objectifs-spécifiques-1",
+    "href": "CanCOTS-CEGEP.html#objectifs-spécifiques-1",
+    "title": "Probabilités et statistique",
+    "section": "Objectifs spécifiques",
+    "text": "Objectifs spécifiques"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#évolution-du-cours",
+    "href": "CanCOTS-CEGEP.html#évolution-du-cours",
+    "title": "Probabilités et statistique",
+    "section": "Évolution du cours",
+    "text": "Évolution du cours\nAucune modification depuis des décennies?\n\nLa science des données est en vogue.\nLes données (et leur collecte) sont devenues omniprésentes (moins de sondage, plus de collecte en ligne).\nLes langages (et logiciels) de programmation libre accès (R Python, etc.) se sont démocratisés. Certains programmes préuniversitaires ont des cours de programmation.\nCertaines notions (statistiques descriptives) sont désormais au programme du secondaire."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#rapports-gaise",
+    "href": "CanCOTS-CEGEP.html#rapports-gaise",
+    "title": "Probabilités et statistique",
+    "section": "Rapports GAISE",
+    "text": "Rapports GAISE\n\nAmerican Statistical Association (2016), Guidelines for Assessment and Instruction in Statistics Education (GAISE) College Report, Alexandria, VA: American Statistical Association. hyperlien, 2e édition.\n\nL’ébauche d’une troisième version est disponible en ligne."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#recommendations-du-gaise",
+    "href": "CanCOTS-CEGEP.html#recommendations-du-gaise",
+    "title": "Probabilités et statistique",
+    "section": "Recommendations du GAISE",
+    "text": "Recommendations du GAISE\n\nEnseigner la statistique et la science des données comme des processus itératifs permettant de tirer des enseignements des données afin d’éclairer les décisions fondées sur des preuves.\nMettre l’accent sur une communication écrite et orale effective des résultats obtenus à partir des données, en prêtant attention à la portée et aux limites des conclusions.\nSe concentrer sur la compréhension conceptuelle plutôt que sur la manipulation algébrique et les formules."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#recommendations-du-gaise-1",
+    "href": "CanCOTS-CEGEP.html#recommendations-du-gaise-1",
+    "title": "Probabilités et statistique",
+    "section": "Recommendations du GAISE",
+    "text": "Recommendations du GAISE\n\nIntégrer des données réelles avec un contexte et un objectif tout au long du cours. Sélectionner des données significatives et attrayantes pour les étudiants.\nEncourager la réflexion multidimensionnelle."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#recommendations-du-gaise-2",
+    "href": "CanCOTS-CEGEP.html#recommendations-du-gaise-2",
+    "title": "Probabilités et statistique",
+    "section": "Recommendations du GAISE",
+    "text": "Recommendations du GAISE\n\nIncorporer des logiciels/applications pour explorer des concepts et travailler avec des données.\nInsister sur la conduite responsable et éthique dans la collecte et l’utilisation des données et dans leur analyse."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#recommendations-du-gaise-3",
+    "href": "CanCOTS-CEGEP.html#recommendations-du-gaise-3",
+    "title": "Probabilités et statistique",
+    "section": "Recommendations du GAISE",
+    "text": "Recommendations du GAISE\n\nEmployer des méthodes pédagogiques fondées sur des données probantes qui engagent activement les étudiants dans le processus d’apprentissage.\nUtiliser une variété d’évaluations formatives et sommatives pour améliorer l’enseignement et l’apprentissage.\nMettre en oeuvre une conception de cours qui utilise des stratégies inclusives pour favoriser un sentiment d’appartenance."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#science-des-données",
+    "href": "CanCOTS-CEGEP.html#science-des-données",
+    "title": "Probabilités et statistique",
+    "section": "Science des données",
+    "text": "Science des données\nLa plupart des concepts enseignées ne semblent pas reliés dans les ouvrages de référence.\n\nles statistiques descriptives et les graphiques / visualisation servent dans l’analyse exploratoire.\nles statistiques descriptives sont des estimateurs et servent à la constructions de tests.\nles lois de probabilité interviennent souvent dans la loi d’échantillonnage de statistiques (tests-\\(t\\) ou \\(\\chi^2\\)) ou pour le calcul de valeurs-p (combinatoire), ou pour des variables réponses."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#concepts-fondamentaux-pour-linférence",
+    "href": "CanCOTS-CEGEP.html#concepts-fondamentaux-pour-linférence",
+    "title": "Probabilités et statistique",
+    "section": "Concepts fondamentaux pour l’inférence",
+    "text": "Concepts fondamentaux pour l’inférence\nLes statistiques de tests sont toutes construites selon les mêmes principes.\nLe principe clé sous-jacent est la comparaison de modèles\n\nchoisir un modèle pour les données\nformuler une hypothèse nulle et alternative\nestimer le modèle sous l’hypothèse nulle \\(\\mathscr{H}_0\\) et alternative \\(\\mathscr{H}_a\\)\ncalculer une statistique standardisée (résumé de la preuve)\ncomparaison avec un étalon de mesure (loi d’échantillonage sous \\(\\mathscr{H}_0\\))\ntransformation à l’échelle uniforme (valeur-\\(p\\)) et conclusion\n\nC’est difficile au niveau collégial parce que les modèles considérés sont souvent implicites (par exemple, la régression de Poisson pour tableaux de contingence)."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#inférence-basée-sur-la-simulation",
+    "href": "CanCOTS-CEGEP.html#inférence-basée-sur-la-simulation",
+    "title": "Probabilités et statistique",
+    "section": "Inférence basée sur la simulation",
+    "text": "Inférence basée sur la simulation\n\nCobb, G. W. (2007). The Introductory Statistics Course: A Ptolemaic Curriculum? Technology Innovations in Statistics Education, 1(1). DOI: 10.5070/T511000028\n\n\nMine Çetinkaya-Rundel and Johanna Hardin (2024). Introduction to Modern Statistics, 2e édition, https://www.openintro.org/book/ims/"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#concepts-clés-1",
+    "href": "CanCOTS-CEGEP.html#concepts-clés-1",
+    "title": "Probabilités et statistique",
+    "section": "Concepts clés 1",
+    "text": "Concepts clés 1\n\nCompréhension de l’incertitude et de la notion d’aléatoire d’un test d’hypothèse\n\nUne statistique est une fonction des données (supposée ici unidimensionnelle).\n\nsi on prend comme intrant un échantillon aléatoire simple tirée d’une population commune, la sortie est aussi une variable aléatoire."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#concepts-clés-2",
+    "href": "CanCOTS-CEGEP.html#concepts-clés-2",
+    "title": "Probabilités et statistique",
+    "section": "Concepts clés 2",
+    "text": "Concepts clés 2\nLa moyenne d’un échantillon est moins variable qu’une observation tirée au hasard\n\nL’information s’accumule à un rythme linéaire si les données sont indépendantes.\nLa variance diminue par un facteur équivalent à la taille de l’échantillon, \\(n\\)."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#cohérence-destimateurs",
+    "href": "CanCOTS-CEGEP.html#cohérence-destimateurs",
+    "title": "Probabilités et statistique",
+    "section": "Cohérence d’estimateurs",
+    "text": "Cohérence d’estimateurs\nOutre le théorème central limite, la loi des grands nombres joue un rôle clef."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#variabilité-de-la-moyenne",
+    "href": "CanCOTS-CEGEP.html#variabilité-de-la-moyenne",
+    "title": "Probabilités et statistique",
+    "section": "Variabilité de la moyenne",
+    "text": "Variabilité de la moyenne"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#concept-clé-3",
+    "href": "CanCOTS-CEGEP.html#concept-clé-3",
+    "title": "Probabilités et statistique",
+    "section": "Concept clé 3",
+    "text": "Concept clé 3\nÉviter le plus possible le catalogue de statistiques!\n\nArbre de décision, tirée de McElreath (2015), Figure 1.1."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#statistique-de-wald",
+    "href": "CanCOTS-CEGEP.html#statistique-de-wald",
+    "title": "Probabilités et statistique",
+    "section": "Statistique de Wald",
+    "text": "Statistique de Wald\nLa plupart des statistiques appartiennent à une famille.\nL’exemple canonique, la statistique de Wald, est omniprésente (test-\\(t\\), proportions, coefficient de régression linéaire, corrélation, etc.)\nPour un paramètre \\(\\theta\\) donné \\[\\begin{align*}\nW = \\frac{\\text{estimation} - \\text{valeur postulée}}{\\text{erreur-type (estimation)}} = \\frac{\\widehat{\\theta} - \\theta_0}{\\mathsf{se}(\\widehat{\\theta})}.\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#en-moyenne",
+    "href": "CanCOTS-CEGEP.html#en-moyenne",
+    "title": "Probabilités et statistique",
+    "section": "En moyenne…",
+    "text": "En moyenne…\nSi la statistique est une moyenne et qu’on peut appliquer le théorème central limite, alors une approximation normale est valide en grand échantillon.\nLe nombre \\(n=30\\) n’a rien de magique: l’approximation est typiquement aussi bonne pour \\(n=29.\\)\nCe résultat est valide sous des conditions très générales et est facile à représenter visuellement avec des animations (applet)."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#distribution-quelconque",
+    "href": "CanCOTS-CEGEP.html#distribution-quelconque",
+    "title": "Probabilités et statistique",
+    "section": "Distribution quelconque",
+    "text": "Distribution quelconque\nDonnées de durée de trajet pour TGV entre Madrid et Barcelone.\n\n\nFigure 1: Distribution empirique des temps de trajet de TGV."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#théorème-central-limite-en-image",
+    "href": "CanCOTS-CEGEP.html#théorème-central-limite-en-image",
+    "title": "Probabilités et statistique",
+    "section": "Théorème central limite en image",
+    "text": "Théorème central limite en image\n\n\nFigure 2: Représentation graphique du théorème central limite (20 obs), avec moyennes de \\(n=5\\), et \\(n=5, 20, 100\\) observations."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#erreur-type",
+    "href": "CanCOTS-CEGEP.html#erreur-type",
+    "title": "Probabilités et statistique",
+    "section": "Erreur-type",
+    "text": "Erreur-type\nEn pratique, il convient de standardiser l’estimateur en le divisant par son erreur-type.\nRappel: la statistique est une variable aléatoire!\nSi on considère des données indépendantes d’une population de moyenne théorique \\(\\mu\\) et de variance \\(\\sigma^2\\), alors l’erreur-type de la moyenne est \\(\\sigma/\\sqrt{n}\\)."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#cas-spécifiques",
+    "href": "CanCOTS-CEGEP.html#cas-spécifiques",
+    "title": "Probabilités et statistique",
+    "section": "Cas spécifiques",
+    "text": "Cas spécifiques\nLa variance est inconnue, il faut donc l’estimer.\n\nSi on utilise une distribution pour laquelle la variance est une fonction de la moyenne (loi binomiale avec probabilité de succès \\(p\\)), alors on sait que \\(\\sigma^2=p(1-p)\\) et on utilise \\(\\widehat{p}\\), la proportion empirique.\nSinon, on peut remplacer \\(\\sigma^2\\) par une estimation sans biais de la variance, \\(s^2.\\)\nPlus généralement, avec la méthode du maximum de vraisemblance, on obtient les erreurs-type à partir de la matrice d’information."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#statistiques-et-loi-déchantillonnage",
+    "href": "CanCOTS-CEGEP.html#statistiques-et-loi-déchantillonnage",
+    "title": "Probabilités et statistique",
+    "section": "Statistiques et loi d’échantillonnage",
+    "text": "Statistiques et loi d’échantillonnage\nLa loi nulle asymptotique est la loi d’échantillonnage de la statistique quand notre hypothèse nulle est vraie.\nCela correspond typiquement à un modèle duquel on peut simuler des observations.\n\npar exemple, dans un test-t pour deux échantillons, on peut permuter les libellés de groupes. Voir l’article interactif sur le test de permutation de Jared Wilber."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#intervalles-de-confiance",
+    "href": "CanCOTS-CEGEP.html#intervalles-de-confiance",
+    "title": "Probabilités et statistique",
+    "section": "Intervalles de confiance",
+    "text": "Intervalles de confiance\n\nSi on calcule un intervalle de confiance pour un échantillon donné, la vraie valeur (inconnue) du paramètre \\(\\theta\\) est soit dans l’intervalle de confiance, soit pas: il n’y a pas de notion de probabilité!\nLe terme confiance s’applique à la procédure que l’on utilise pour calculer l’intervalle, et non pas dans les valeurs des bornes obtenues pour un échantillon en particulier.\nSi on répète l’expérience plusieurs fois, et qu’on calcule un intervalle de confiance de niveau \\(1-\\alpha\\) à chaque reprise, alors en moyenne une proportion de \\(1-\\alpha\\) des intervalles contiendra la vraie valeur de \\(\\theta\\) parmi toutes les répétitions."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#propriétés-fréquentistes-des-intervalles-de-confiance",
+    "href": "CanCOTS-CEGEP.html#propriétés-fréquentistes-des-intervalles-de-confiance",
+    "title": "Probabilités et statistique",
+    "section": "Propriétés fréquentistes des intervalles de confiance",
+    "text": "Propriétés fréquentistes des intervalles de confiance\n\n\nFigure 3: Intervalles de confiance à 95% pour la moyenne d’une population normale standard pour 100 échantillons aléatoires. En moyenne, 5% de ces intervalles (en rouge) n’incluent pas la vraie valeur de la moyenne de zéro."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#inférence-basée-sur-la-simulation-1",
+    "href": "CanCOTS-CEGEP.html#inférence-basée-sur-la-simulation-1",
+    "title": "Probabilités et statistique",
+    "section": "Inférence basée sur la simulation",
+    "text": "Inférence basée sur la simulation\nEn général, il faut pouvoir programmer pour faire les calculs. Personne ne fait des statistiques à la main!\nDans les programmes comme Sciences, informatique et mathématique, il est probablement plus facile d’incorporer Python, R ou un autre outil."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#applet",
+    "href": "CanCOTS-CEGEP.html#applet",
+    "title": "Probabilités et statistique",
+    "section": "Applet",
+    "text": "Applet\n\nRessources créées par l’équipe de l’UBC: statspace.elearning.ubc.ca\nApplications Shiny\nCollection de Rossman/Chance\nIntroduction to Statistical Investigations\nDistributions SOCR\n\nLa plupart ne sont malheureusement disponibles qu’en anglais."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#processus-itératif",
+    "href": "CanCOTS-CEGEP.html#processus-itératif",
+    "title": "Probabilités et statistique",
+    "section": "Processus itératif",
+    "text": "Processus itératif"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#exemple-suggestion-de-montants-de-dons",
+    "href": "CanCOTS-CEGEP.html#exemple-suggestion-de-montants-de-dons",
+    "title": "Probabilités et statistique",
+    "section": "Exemple: suggestion de montants de dons",
+    "text": "Exemple: suggestion de montants de dons\n\n\nMoon, A. et EM VanEpps (2023). Giving Suggestions: Using Quantity Requests to Increase Donations, Journal of Consumer Research, 50(1), 190–210. doi:10.1093/jcr/ucac047\n\nÀ travers sept études, nous fournissons des preuves qu’offrir des choix multiples lors de sollicitation pour des dons (par ex., 5$, 10$, 15$) augmente le montant moyen des dons comparativement à une question ouverte."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#données-de-létude-1",
+    "href": "CanCOTS-CEGEP.html#données-de-létude-1",
+    "title": "Probabilités et statistique",
+    "section": "Données de l’étude 1",
+    "text": "Données de l’étude 1\nLes données colligées sur \\(n=869\\) participant(e)s incluent les variables suivantes:\n\navant: un indicateur binaire qui indique si la personne a déjà donné à l’organisme de charité par le passé\ndon: indicateur binaire si don\ngroupe: groupe expérimental, soit question ouverte ou quantité fixe suggérée\nmontant: montant du don (en dollars), valeur manquante si don=0 (min 0, max 25).\n\n\nRétro-ingénierie: quelles questions scientifiques pouvez-vous envisager poser avec ces variables?"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#visualisation-histogramme-du-montant-des-dons",
+    "href": "CanCOTS-CEGEP.html#visualisation-histogramme-du-montant-des-dons",
+    "title": "Probabilités et statistique",
+    "section": "Visualisation: histogramme du montant des dons",
+    "text": "Visualisation: histogramme du montant des dons\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 4: méthode de Sturges\n\n\n\n\n\n\n\n\n\n\n\nFigure 5: tranches de 0.25$\n\n\n\n\n\n\nQu’est-ce que la visualisation révèle?"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#tableaux-de-contingence",
+    "href": "CanCOTS-CEGEP.html#tableaux-de-contingence",
+    "title": "Probabilités et statistique",
+    "section": "Tableaux de contingence",
+    "text": "Tableaux de contingence\n\n\n\n\n\n\n\nNombre de dons (colonne) par groupe expérimental (ligne)\n\n\n\nnon\noui\n\n\n\n\nouvert\n140\n267\n\n\nfixe\n95\n367\n\n\n\n\n\n\nDons: antécédent (ligne) versus actuel (colonne)\n\n\n\nnon\noui\n\n\n\n\nnon\n113\n238\n\n\noui\n122\n395"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#résultats-de-deux-tests-dindépendance",
+    "href": "CanCOTS-CEGEP.html#résultats-de-deux-tests-dindépendance",
+    "title": "Probabilités et statistique",
+    "section": "Résultats de deux tests d’indépendance",
+    "text": "Résultats de deux tests d’indépendance\nLe test de Fisher utilise le rapport de cotes comme statistique de test. Si l’on suppose que les décomptes (lignes/colonnes) sont fixes, un argument combinatoire donne une loi hypergéométrique pour la loi d’échantillonnage.\n\n## \n##  Fisher's Exact Test for Count Data\n## \n## data:  tab1\n## p-value = 6e-06\n## alternative hypothesis: true odds ratio is not equal to 1\n## 95 percent confidence interval:\n##  1.48 2.78\n## sample estimates:\n## odds ratio \n##       2.02"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#test-du-khi-deux",
+    "href": "CanCOTS-CEGEP.html#test-du-khi-deux",
+    "title": "Probabilités et statistique",
+    "section": "Test du khi-deux",
+    "text": "Test du khi-deux\nLe test du khi-deux (sic) utilise une approximation khi-deux à un degré de liberté.\n\n## \n##  Pearson's Chi-squared test\n## \n## data:  tab1\n## X-squared = 21, df = 1, p-value = 5e-06\n\nLes statistiques et les valeurs-p diffèrent! Est-ce important?"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#comparaison-des-revenus",
+    "href": "CanCOTS-CEGEP.html#comparaison-des-revenus",
+    "title": "Probabilités et statistique",
+    "section": "Comparaison des revenus",
+    "text": "Comparaison des revenus\nOn peut faire un test-t pour deux échantillons indépendants pour comparer les revenus.\n\n## \n##  Two Sample t-test\n## \n## data:  montant by groupe\n## t = -4, df = 867, p-value = 2e-04\n## alternative hypothesis: true difference in means between group ouvert and group fixe is not equal to 0\n## 95 percent confidence interval:\n##  -2.945 -0.914\n## sample estimates:\n## mean in group ouvert   mean in group fixe \n##                 6.77                 8.70\n\nConclusions et limitations de l’étude?"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#test-de-permutation-et-autoamorçage",
+    "href": "CanCOTS-CEGEP.html#test-de-permutation-et-autoamorçage",
+    "title": "Probabilités et statistique",
+    "section": "Test de permutation et autoamorçage",
+    "text": "Test de permutation et autoamorçage\n\nlibrary(infer)\nttest &lt;- dons |&gt; t_test(formula = montant ~ groupe,\n                order = c(\"ouvert\", \"fixe\"))\nnull_dist &lt;- dons |&gt; \n   specify(montant ~ groupe) |&gt;\n   hypothesize(null = \"independence\") |&gt;\n   generate(reps = 1000, type = \"permute\") |&gt;\n   calculate(stat = \"t\", order = c(\"ouvert\", \"fixe\"))\nvisualize(null_dist) +\n  shade_p_value(obs_stat = ttest, direction = \"two-sided\") +\n  theme_classic()"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#tests-ab-et-titres-des-nouvelles",
+    "href": "CanCOTS-CEGEP.html#tests-ab-et-titres-des-nouvelles",
+    "title": "Probabilités et statistique",
+    "section": "Tests A/B et titres des nouvelles",
+    "text": "Tests A/B et titres des nouvelles\n\n\n\n\n\n\n\n\n\n\n\n\nUpworthy.com, un éditeur de médias américain, a révolutionné la publicité en ligne en effectuant des tests A/B systématiques pour comparer les différentes formulations des titres, l’emplacement du texte et de l’image afin de déterminer ce qui attire le plus l’attention.\nLes archives d’Upworthy contiennent les résultats de 22743 expériences, avec un taux moyens de clics de 1.58% (écart type de 1.23%)."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#titres-darticles",
+    "href": "CanCOTS-CEGEP.html#titres-darticles",
+    "title": "Probabilités et statistique",
+    "section": "Titres d’articles",
+    "text": "Titres d’articles\nVoici les résultats d’un test A/B du 23 novembre 2014 qui comparait quatre titres pour un atelier de Sesame Street. L’épisode traitait d’enfants dont les parents étaient incarcérés en prison, où ils les visitaient. Les quatre choix considérés étaient:\n\nSome Don’t Like It When He Sees His Mom. But To Him? Pure Joy. Why Keep Her From Him?\nThey’re Not In Danger. They’re Right. See True Compassion From The Children Of The Incarcerated.\nKids Have No Place In Jail … But In This Case, They Totally Deserve It.\nGoing To Jail Should Be The Worst Part Of Their Life. It’s So Not. Not At All."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#tests-ab-exemple-de-sesame-street",
+    "href": "CanCOTS-CEGEP.html#tests-ab-exemple-de-sesame-street",
+    "title": "Probabilités et statistique",
+    "section": "Tests A/B: exemple de Sesame street",
+    "text": "Tests A/B: exemple de Sesame street\n\n\n\n\n\ntitre\nvues\nclics\n\n\n\n\nH1\n3060\n49\n\n\nH2\n2982\n20\n\n\nH3\n3112\n31\n\n\nH4\n3083\n9"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#méthodes-de-rééchantillonage",
+    "href": "CanCOTS-CEGEP.html#méthodes-de-rééchantillonage",
+    "title": "Probabilités et statistique",
+    "section": "Méthodes de rééchantillonage",
+    "text": "Méthodes de rééchantillonage\nLe traffic est redirigé de manière aléatoire: on pourrait vérifier la répartition des 12 237 vues avec un test d’ajustement.\n\nOn calcule la statistique de test \\(T\\) sur l’échantillon.\nSous \\(\\mathscr{H}_0\\), cela revient à simuler des tirages d’une loi multinomale avec \\(p=(1/4, 1/4, 1/4, 1/4)\\). Pour chaque tirage du modèle, on recalcule la statistique. On répète \\(B\\) fois.\nOn compare les résultats: la valeur-p est estimée par la proportion empirique des \\(B\\) simulations qui excèdent \\(T\\)."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#code-pour-monte-carlo",
+    "href": "CanCOTS-CEGEP.html#code-pour-monte-carlo",
+    "title": "Probabilités et statistique",
+    "section": "Code pour Monte Carlo",
+    "text": "Code pour Monte Carlo\n\n\nCode\nB &lt;- 1000L # nombre de simulations Monte Carlo\nvues &lt;- c(3060L, 2982L, 3112L, 3083L)\ntotal &lt;- sum(vues) # décompte total\n# Fonction calculant la statistique de test\nstat_khideux_unif &lt;- function(\n    x, # vecteur de décomptes\n    prob = rep(1/length(x), length(x)), # probabilité postulée \n    n = sum(x)) # décompte total\n  { # E = n*prob, O = x\n  sum((x - n*prob)^2/(n*prob)) # statistique du score\n}\n\n# On remplace l'approximation khi-deux avec 3 ddl\n# par une approximation Monte Carlo\nloinulle &lt;- numeric(B) # contenant\ntest &lt;- stat_khideux_unif(vues) # stat avec données originales\n# Tirages sous H0\nfor(i in 1:B){\n  x0 &lt;- c(rmultinom(n = 1, size = total, prob = rep(0.25, 4)))\n  loinulle[i] &lt;- stat_khideux_unif(x0)\n}\n# Probabilité sous H0 d'obtenir un résultat plus grand?\n# remplacée par proportion empirique\nmean(loinulle &gt;= test)\n## [1] 0.377"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#questions-plus-générales",
+    "href": "CanCOTS-CEGEP.html#questions-plus-générales",
+    "title": "Probabilités et statistique",
+    "section": "Questions plus générales",
+    "text": "Questions plus générales\nOn peut estimer le taux de conversion (clics/vues) par la proportion empirique.\n\nprop &lt;- with(abtest, clics/vues)\nnvues &lt;- 1000 # nombre de vues\nB &lt;- 1e4L # nombre de simulations Monte Carlo\nres &lt;- cbind(\n  rbinom(n = B, size = nvues, prob = prop[1]),\n  rbinom(n = B, size = nvues, prob = prop[2]),\n  rbinom(n = B, size = nvues, prob = prop[3]),\n  rbinom(n = B, size = nvues, prob = prop[4]))\n# Probabilité que le titre i génère plus de clics\n# avec 1000 vues\ntable(apply(res, 1, which.max))/B\n## \n##      1      2      3 \n## 0.8973 0.0117 0.0910\n# On peut obtenir un intervalle de confiance \n# (ce sont des moyennes)!"
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#à-vous-de-jouer",
+    "href": "CanCOTS-CEGEP.html#à-vous-de-jouer",
+    "title": "Probabilités et statistique",
+    "section": "À vous de jouer",
+    "text": "À vous de jouer\nOn vous propose de travailler avec nous\n\nl’incorporation de jeux de données thématiques,\nl’introduction aux langages de programmation pour la réalisation de tests et les calculs,\nl’utilisation de simulations et d’applications interactives pour illustrer les concepts et résultats\nla construction de bases d’exercices (interactifs ou papiers)."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#données-ouvertes",
+    "href": "CanCOTS-CEGEP.html#données-ouvertes",
+    "title": "Probabilités et statistique",
+    "section": "Données ouvertes",
+    "text": "Données ouvertes\n\nSites gouvernementaux: Données Québec, Statistique Canada, data.gov.uk\nRépertoires de partages de données d’articles scientifiques: ResearchBox, OSF\nDonnées distribuées avec paquets R Rdatasets\n\nLes données plus récentes ou réalistes nécessitent un prétraitement ou nettoyage."
+  },
+  {
+    "objectID": "CanCOTS-CEGEP.html#logiciels",
+    "href": "CanCOTS-CEGEP.html#logiciels",
+    "title": "Probabilités et statistique",
+    "section": "Logiciels",
+    "text": "Logiciels\n\nR\nPython via statmodels\nJamovi\nJASP"
+  }
+]

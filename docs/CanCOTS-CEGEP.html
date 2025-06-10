@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-81b5c3e63835cfde897ecd3d35a35a41.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.3">
+
+  <meta name="author" content="Léo Belzile, HEC Montréal">
+  <title>Probabilités et statistique</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-78bf437ef0cff5db7e5240731518873b.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#002855" class="quarto-title-block center">
+  <h1 class="title">Probabilités et statistique</h1>
+  <p class="subtitle">Atelier parallèle - CanCOTS</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Léo Belzile, HEC Montréal 
+</div>
+</div>
+</div>
+
+  <p class="date">mardi 10 juin 2025</p>
+</section>
+<section id="cours-de-probabilités-et-statistique" class="slide level2">
+<h2>Cours de <em>Probabilités et statistique</em></h2>
+<p>La réforme de 2021 au collégial a ajouté le cours de <em>Probabilités et statistique</em> comme cours obligatoire du cursus de <em>Sciences de la nature</em>.</p>
+
+<img data-src="figures/MES_objectifs.png" class="quarto-figure quarto-figure-center r-stretch" width="284"></section>
+<section id="objectifs-spécifiques" class="slide level2">
+<h2>Objectifs spécifiques</h2>
+
+<img data-src="figures/MES_PS_1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section id="objectifs-spécifiques-1" class="slide level2">
+<h2>Objectifs spécifiques</h2>
+
+<img data-src="figures/MES_PS_2.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<section id="évolution-du-cours" class="slide level2">
+<h2>Évolution du cours</h2>
+<p>Aucune modification depuis des décennies?</p>
+<ul>
+<li>La science des données est en vogue.</li>
+<li>Les données (et leur collecte) sont devenues omniprésentes (moins de sondage, plus de collecte en ligne).</li>
+<li>Les langages (et logiciels) de programmation libre accès (R Python, etc.) se sont démocratisés. Certains programmes préuniversitaires ont des cours de programmation.</li>
+<li>Certaines notions (statistiques descriptives) sont désormais au programme du secondaire.</li>
+</ul>
+</section>
+<section id="rapports-gaise" class="slide level2">
+<h2>Rapports GAISE</h2>
+<blockquote>
+<p>American Statistical Association (2016), Guidelines for Assessment and Instruction in Statistics Education (GAISE) College Report, Alexandria, VA: American Statistical Association. <a href="https://www.amstat.org/education/guidelines-for-assessment-and-instruction-in-statistics-education-(gaise)-reports">hyperlien</a>, 2e édition.</p>
+</blockquote>
+<p>L’ébauche d’une troisième version est disponible en ligne.</p>
+</section>
+<section id="recommendations-du-gaise" class="slide level2">
+<h2>Recommendations du GAISE</h2>
+<ol type="1">
+<li>Enseigner la statistique et la science des données comme des <strong>processus itératifs</strong> permettant de tirer des enseignements des données afin d’éclairer les décisions fondées sur des preuves.</li>
+<li>Mettre l’accent sur une <strong>communication écrite et orale effective</strong> des résultats obtenus à partir des données, en prêtant attention à la portée et aux limites des conclusions.</li>
+<li>Se concentrer sur la <strong>compréhension conceptuelle</strong> plutôt que sur la manipulation algébrique et les formules.</li>
+</ol>
+</section>
+<section id="recommendations-du-gaise-1" class="slide level2">
+<h2>Recommendations du GAISE</h2>
+<ol start="4" type="1">
+<li>Intégrer des <strong>données réelles</strong> avec un contexte et un objectif tout au long du cours. Sélectionner des données significatives et attrayantes pour les étudiants.</li>
+<li>Encourager la réflexion multidimensionnelle.</li>
+</ol>
+</section>
+<section id="recommendations-du-gaise-2" class="slide level2">
+<h2>Recommendations du GAISE</h2>
+<ol start="6" type="1">
+<li>Incorporer des <strong>logiciels/applications</strong> pour explorer des concepts et travailler avec des données.</li>
+<li>Insister sur la conduite responsable et éthique dans la collecte et l’utilisation des données et dans leur analyse.</li>
+</ol>
+</section>
+<section id="recommendations-du-gaise-3" class="slide level2">
+<h2>Recommendations du GAISE</h2>
+<ol start="8" type="1">
+<li>Employer des méthodes pédagogiques fondées sur des données probantes qui engagent activement les étudiants dans le processus d’apprentissage.</li>
+<li>Utiliser une variété d’évaluations formatives et sommatives pour améliorer l’enseignement et l’apprentissage.</li>
+<li>Mettre en oeuvre une conception de cours qui utilise des stratégies inclusives pour favoriser un sentiment d’appartenance.</li>
+</ol>
+<!--
+## Trois pilliers de l'enseignement
+
+> Ben Zvi, D. et J. Garfield (2004). *The Challenge of Developing Statistical Literacy, Reasoning and Thinking*, Springer Dordrecht, [DOI: 10.1007/1-4020-2278-6](https://doi.org/10.1007/1-4020-2278-6)
+
+- littéracie statistique
+- raisonnement statistique
+- pensée statistique
+
+
+## Définitions {.smaller}
+
+- **Littéracie statistique**: 
+    - compréhension des concepts, du vocabulaire et de la notion de probabilité comme mesure de l'incertitude. 
+    - capacité à organiser, structurer et travailler avec différentes représentations des données.
+- **Raisonnement statistique**: 
+    - interprétation de résultats et de statistiques (par exemples, mesures de tendances centrales).
+    - établissements de liens entre les concepts.
+- **Pensée statistique**: comprendre les grandes idées, et le processus de contextualisation de problèmes et d'hypothèses, la collecte de données, l'évaluation critique de résultats.
+
+-->
+</section>
+<section id="science-des-données" class="slide level2">
+<h2>Science des données</h2>
+<p>La plupart des concepts enseignées ne semblent pas reliés dans les ouvrages de référence.</p>
+<ul>
+<li>les statistiques descriptives et les graphiques / visualisation servent dans l’<strong>analyse exploratoire</strong>.</li>
+<li>les statistiques descriptives sont des <strong>estimateurs</strong> et servent à la constructions de tests.</li>
+<li>les lois de probabilité interviennent souvent dans la loi d’échantillonnage de statistiques (tests-<span class="math inline">\(t\)</span> ou <span class="math inline">\(\chi^2\)</span>) ou pour le calcul de valeurs-p (combinatoire), ou pour des variables réponses.</li>
+</ul>
+</section>
+<section id="concepts-fondamentaux-pour-linférence" class="slide level2 smaller">
+<h2>Concepts fondamentaux pour l’inférence</h2>
+<p>Les statistiques de tests sont toutes construites selon les mêmes principes.</p>
+<p>Le principe clé sous-jacent est la <strong>comparaison de modèles</strong></p>
+<ul>
+<li>choisir un modèle pour les données</li>
+<li>formuler une hypothèse nulle et alternative</li>
+<li>estimer le modèle sous l’hypothèse nulle <span class="math inline">\(\mathscr{H}_0\)</span> et alternative <span class="math inline">\(\mathscr{H}_a\)</span></li>
+<li>calculer une statistique standardisée (résumé de la preuve)</li>
+<li>comparaison avec un étalon de mesure (loi d’échantillonage sous <span class="math inline">\(\mathscr{H}_0\)</span>)</li>
+<li>transformation à l’échelle uniforme (valeur-<span class="math inline">\(p\)</span>) et conclusion</li>
+</ul>
+<p>C’est difficile au niveau collégial parce que les modèles considérés sont souvent implicites (par exemple, la régression de Poisson pour tableaux de contingence).</p>
+</section>
+<section id="inférence-basée-sur-la-simulation" class="slide level2">
+<h2>Inférence basée sur la simulation</h2>
+<blockquote>
+<p>Cobb, G. W. (2007). The Introductory Statistics Course: A Ptolemaic Curriculum? Technology Innovations in Statistics Education, 1(1). <a href="http://dx.doi.org/10.5070/T511000028">DOI: <code>10.5070/T511000028</code></a></p>
+</blockquote>
+<blockquote>
+<p>Mine Çetinkaya-Rundel and Johanna Hardin (2024). Introduction to Modern Statistics, 2e édition, https://www.openintro.org/book/ims/</p>
+</blockquote>
+</section>
+<section id="concepts-clés-1" class="slide level2">
+<h2>Concepts clés 1</h2>
+<ul>
+<li>Compréhension de l’incertitude et de la notion d’aléatoire d’un test d’hypothèse</li>
+</ul>
+<p>Une statistique est une fonction des données (supposée ici unidimensionnelle).</p>
+<ul>
+<li>si on prend comme intrant un <strong>échantillon aléatoire simple</strong> tirée d’une population commune, la sortie est aussi une variable aléatoire.</li>
+</ul>
+</section>
+<section id="concepts-clés-2" class="slide level2">
+<h2>Concepts clés 2</h2>
+<p>La moyenne d’un échantillon est moins variable qu’une observation tirée au hasard</p>
+<ul>
+<li>L’information s’accumule à un rythme linéaire si les données sont indépendantes.</li>
+<li>La variance diminue par un facteur équivalent à la taille de l’échantillon, <span class="math inline">\(n\)</span>.</li>
+</ul>
+</section>
+<section id="cohérence-destimateurs" class="slide level2 smaller">
+<h2>Cohérence d’estimateurs</h2>
+<p>Outre le théorème central limite, la loi des grands nombres joue un rôle clef.</p>
+
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/uniformsamp2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="768"></section>
+<section id="variabilité-de-la-moyenne" class="slide level2">
+<h2>Variabilité de la moyenne</h2>
+
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/sampvar-1.gif" class="r-stretch"></section>
+<section id="concept-clé-3" class="slide level2">
+<h2>Concept clé 3</h2>
+<p>Éviter le plus possible le catalogue de statistiques!</p>
+
+<img data-src="figures/McElreath_Flowchart.png" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">Arbre de décision, tirée de McElreath (2015), Figure 1.1.</p></section>
+<section id="statistique-de-wald" class="slide level2">
+<h2>Statistique de Wald</h2>
+<p>La plupart des statistiques appartiennent à une famille.</p>
+<p>L’exemple canonique, la statistique de Wald, est omniprésente (test-<span class="math inline">\(t\)</span>, proportions, coefficient de régression linéaire, corrélation, etc.)</p>
+<p>Pour un paramètre <span class="math inline">\(\theta\)</span> donné <span class="math display">\[\begin{align*}
+W = \frac{\text{estimation} - \text{valeur postulée}}{\text{erreur-type (estimation)}} = \frac{\widehat{\theta} - \theta_0}{\mathsf{se}(\widehat{\theta})}.
+\end{align*}\]</span></p>
+</section>
+<section id="en-moyenne" class="slide level2">
+<h2>En moyenne…</h2>
+<p>Si la statistique est une moyenne et qu’on peut appliquer le théorème central limite, alors une approximation normale est valide en grand échantillon.</p>
+<p>Le nombre <span class="math inline">\(n=30\)</span> n’a rien de magique: l’approximation est typiquement aussi bonne pour <span class="math inline">\(n=29.\)</span></p>
+<p>Ce résultat est valide sous des conditions très générales et est facile à représenter visuellement avec des animations (<a href="http://195.134.76.37/applets/AppletCentralLimit/Appl_CentralLimit2.html">applet</a>).</p>
+</section>
+<section id="distribution-quelconque" class="slide level2">
+<h2>Distribution quelconque</h2>
+<p>Données de durée de trajet pour TGV entre Madrid et Barcelone.</p>
+
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/fig-renfeclt-1.png" width="960" class="r-stretch quarto-figure-center" id="fig-renfeclt"><p class="caption">
+Figure&nbsp;1: Distribution empirique des temps de trajet de TGV.
+</p></section>
+<section id="théorème-central-limite-en-image" class="slide level2">
+<h2>Théorème central limite en image</h2>
+
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/fig-renfemeanCLT-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%" id="fig-renfemeanCLT"><p class="caption">
+Figure&nbsp;2: Représentation graphique du théorème central limite (20 obs), avec moyennes de <span class="math inline">\(n=5\)</span>, et <span class="math inline">\(n=5, 20, 100\)</span> observations.
+</p></section>
+<section id="erreur-type" class="slide level2">
+<h2>Erreur-type</h2>
+<p>En pratique, il convient de standardiser l’estimateur en le divisant par son erreur-type.</p>
+<p>Rappel: la statistique est une variable aléatoire!</p>
+<p>Si on considère des données indépendantes d’une population de moyenne théorique <span class="math inline">\(\mu\)</span> et de variance <span class="math inline">\(\sigma^2\)</span>, alors l’erreur-type de la <strong>moyenne</strong> est <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+</section>
+<section id="cas-spécifiques" class="slide level2">
+<h2>Cas spécifiques</h2>
+<p>La variance est inconnue, il faut donc l’estimer.</p>
+<ul>
+<li>Si on utilise une distribution pour laquelle la variance est une fonction de la moyenne (loi binomiale avec probabilité de succès <span class="math inline">\(p\)</span>), alors on sait que <span class="math inline">\(\sigma^2=p(1-p)\)</span> et on utilise <span class="math inline">\(\widehat{p}\)</span>, la proportion empirique.</li>
+<li>Sinon, on peut remplacer <span class="math inline">\(\sigma^2\)</span> par une estimation sans biais de la variance, <span class="math inline">\(s^2.\)</span></li>
+<li>Plus généralement, avec la méthode du maximum de vraisemblance, on obtient les erreurs-type à partir de la matrice d’information.</li>
+</ul>
+</section>
+<section id="statistiques-et-loi-déchantillonnage" class="slide level2">
+<h2>Statistiques et loi d’échantillonnage</h2>
+<p>La loi nulle asymptotique est la loi d’échantillonnage de la statistique quand notre hypothèse nulle est vraie.</p>
+<p>Cela correspond typiquement à un modèle duquel on peut simuler des observations.</p>
+<ul>
+<li>par exemple, dans un test-t pour deux échantillons, on peut permuter les libellés de groupes. Voir l’article interactif sur le <a href="https://www.jwilber.me/permutationtest/">test de permutation</a> de Jared Wilber.</li>
+</ul>
+</section>
+<section id="intervalles-de-confiance" class="slide level2 smaller">
+<h2>Intervalles de confiance</h2>
+<ul>
+<li>Si on calcule un intervalle de confiance pour un échantillon donné, la vraie valeur (inconnue) du paramètre <span class="math inline">\(\theta\)</span> est soit dans l’intervalle de confiance, soit pas: il n’y a pas de notion de probabilité!</li>
+<li>Le terme confiance s’applique à la <em>procédure</em> que l’on utilise pour calculer l’intervalle, et non pas dans les valeurs des bornes obtenues pour un échantillon en particulier.</li>
+<li>Si on répète l’expérience plusieurs fois, et qu’on calcule un intervalle de confiance de niveau <span class="math inline">\(1-\alpha\)</span> à chaque reprise, alors en moyenne une proportion de <span class="math inline">\(1-\alpha\)</span> des intervalles contiendra la vraie valeur de <span class="math inline">\(\theta\)</span> parmi toutes les répétitions.</li>
+</ul>
+</section>
+<section id="propriétés-fréquentistes-des-intervalles-de-confiance" class="slide level2">
+<h2>Propriétés fréquentistes des intervalles de confiance</h2>
+
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/fig-intconf-1.png" width="768" class="r-stretch quarto-figure-center" id="fig-intconf"><p class="caption">
+Figure&nbsp;3: Intervalles de confiance à 95% pour la moyenne d’une population normale standard pour 100 échantillons aléatoires. En moyenne, 5% de ces intervalles (en rouge) n’incluent pas la vraie valeur de la moyenne de zéro.
+</p></section>
+<section id="inférence-basée-sur-la-simulation-1" class="slide level2">
+<h2>Inférence basée sur la simulation</h2>
+<p>En général, il faut pouvoir programmer pour faire les calculs. Personne ne fait des statistiques à la main!</p>
+<p>Dans les programmes comme Sciences, informatique et mathématique, il est probablement plus facile d’incorporer Python, R ou un autre outil.</p>
+</section>
+<section id="applet" class="slide level2">
+<h2>Applet</h2>
+<ul>
+<li>Ressources créées par l’équipe de l’UBC: <a href="https://statspace.elearning.ubc.ca"><code>statspace.elearning.ubc.ca</code></a></li>
+<li><a href="https://antoinesoetewey.shinyapps.io/statistics-201/">Applications Shiny</a></li>
+<li><a href="https://www.rossmanchance.com/applets/">Collection de Rossman/Chance</a></li>
+<li><a href="https://www.isi-stats.com/isi2nd/ISIapplets2021.html">Introduction to Statistical Investigations</a></li>
+<li><a href="https://myumi.ch/bvkpx">Distributions SOCR</a></li>
+</ul>
+<p>La plupart ne sont malheureusement disponibles qu’en anglais.</p>
+</section>
+<section id="processus-itératif" class="slide level2">
+<h2>Processus itératif</h2>
+
+<img data-src="figures/Data_Science_Framework.png" class="quarto-figure quarto-figure-center r-stretch" style="width:70.0%"></section>
+<section id="exemple-suggestion-de-montants-de-dons" class="slide level2 smaller">
+<h2>Exemple: suggestion de montants de dons</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Moon, A. et EM VanEpps (2023). <em>Giving Suggestions: Using Quantity Requests to Increase Donations</em>, Journal of Consumer Research, 50(1), 190–210. <a href="https://doi.org/10.1093/jcr/ucac047"><code>doi:10.1093/jcr/ucac047</code></a></p>
+<blockquote>
+<p>À travers sept études, nous fournissons des preuves qu’offrir des choix multiples lors de sollicitation pour des dons (par ex., 5$, 10$, 15$) augmente le montant moyen des dons comparativement à une question ouverte.</p>
+</blockquote>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/Moon_VanEpps-giving.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="données-de-létude-1" class="slide level2 smaller">
+<h2>Données de l’étude 1</h2>
+<p>Les <a href="https://researchbox.org/54">données colligées</a> sur <span class="math inline">\(n=869\)</span> participant(e)s incluent les variables suivantes:</p>
+<ul>
+<li><code>avant</code>: un indicateur binaire qui indique si la personne a déjà donné à l’organisme de charité par le passé</li>
+<li><code>don</code>: indicateur binaire si don</li>
+<li><code>groupe</code>: groupe expérimental, soit question ouverte ou quantité fixe suggérée</li>
+<li><code>montant</code>: montant du don (en dollars), valeur manquante si <code>don=0</code> (min 0, max 25).</li>
+</ul>
+<div style="font-size: 1.5em; color: #002855; text-align: center">
+<p><strong>Rétro-ingénierie</strong>: quelles questions scientifiques pouvez-vous envisager poser avec ces variables?</p>
+</div>
+</section>
+<section id="visualisation-histogramme-du-montant-des-dons" class="slide level2">
+<h2>Visualisation: histogramme du montant des dons</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-align="center">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-histo-dons-1" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-histo-dons-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/fig-histo-dons-1.png" class="quarto-figure quarto-figure-center" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histo-dons-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: méthode de Sturges
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-histo-dons-2" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-histo-dons-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/fig-histo-dons-2.png" class="quarto-figure quarto-figure-center" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histo-dons-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: tranches de 0.25$
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Qu’est-ce que la visualisation révèle?</p>
+</section>
+<section id="tableaux-de-contingence" class="slide level2">
+<h2>Tableaux de contingence</h2>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="1">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top">
+<caption>Nombre de dons (colonne) par groupe expérimental (ligne)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">non</th>
+<th style="text-align: right;">oui</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ouvert</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">267</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">fixe</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">367</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<table class="caption-top">
+<caption>Dons: antécédent (ligne) versus actuel (colonne)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">non</th>
+<th style="text-align: right;">oui</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">non</td>
+<td style="text-align: right;">113</td>
+<td style="text-align: right;">238</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">oui</td>
+<td style="text-align: right;">122</td>
+<td style="text-align: right;">395</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="résultats-de-deux-tests-dindépendance" class="slide level2">
+<h2>Résultats de deux tests d’indépendance</h2>
+<p>Le test de Fisher utilise le rapport de cotes comme statistique de test. Si l’on suppose que les décomptes (lignes/colonnes) sont fixes, un argument combinatoire donne une loi hypergéométrique pour la loi d’échantillonnage.</p>
+<div class="cell">
+<pre><code>## 
+##  Fisher's Exact Test for Count Data
+## 
+## data:  tab1
+## p-value = 6e-06
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  1.48 2.78
+## sample estimates:
+## odds ratio 
+##       2.02</code></pre>
+</div>
+</section>
+<section id="test-du-khi-deux" class="slide level2">
+<h2>Test du khi-deux</h2>
+<p>Le test du khi-deux (sic) utilise une approximation khi-deux à un degré de liberté.</p>
+<div class="cell">
+<pre><code>## 
+##  Pearson's Chi-squared test
+## 
+## data:  tab1
+## X-squared = 21, df = 1, p-value = 5e-06</code></pre>
+</div>
+<p>Les statistiques et les valeurs-p diffèrent! Est-ce important?</p>
+</section>
+<section id="comparaison-des-revenus" class="slide level2">
+<h2>Comparaison des revenus</h2>
+<p>On peut faire un test-t pour deux échantillons indépendants pour comparer les revenus.</p>
+<div class="cell">
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  montant by groupe
+## t = -4, df = 867, p-value = 2e-04
+## alternative hypothesis: true difference in means between group ouvert and group fixe is not equal to 0
+## 95 percent confidence interval:
+##  -2.945 -0.914
+## sample estimates:
+## mean in group ouvert   mean in group fixe 
+##                 6.77                 8.70</code></pre>
+</div>
+<p>Conclusions et limitations de l’étude?</p>
+</section>
+<section id="test-de-permutation-et-autoamorçage" class="slide level2">
+<h2>Test de permutation et autoamorçage</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(infer)</span>
+<span id="cb4-2"><a></a>ttest <span class="ot">&lt;-</span> dons <span class="sc">|&gt;</span> <span class="fu">t_test</span>(<span class="at">formula =</span> montant <span class="sc">~</span> groupe,</span>
+<span id="cb4-3"><a></a>                <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"ouvert"</span>, <span class="st">"fixe"</span>))</span>
+<span id="cb4-4"><a></a>null_dist <span class="ot">&lt;-</span> dons <span class="sc">|&gt;</span> </span>
+<span id="cb4-5"><a></a>   <span class="fu">specify</span>(montant <span class="sc">~</span> groupe) <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a></a>   <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a></a>   <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-8"><a></a>   <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"t"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"ouvert"</span>, <span class="st">"fixe"</span>))</span>
+<span id="cb4-9"><a></a><span class="fu">visualize</span>(null_dist) <span class="sc">+</span></span>
+<span id="cb4-10"><a></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> ttest, <span class="at">direction =</span> <span class="st">"two-sided"</span>) <span class="sc">+</span></span>
+<span id="cb4-11"><a></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="tests-ab-et-titres-des-nouvelles" class="slide level2 smaller">
+<h2>Tests A/B et titres des nouvelles</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="figures/upworthy.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p>Upworthy.com, un éditeur de médias américain, a révolutionné la publicité en ligne en effectuant des tests A/B systématiques pour comparer les différentes formulations des titres, l’emplacement du texte et de l’image afin de déterminer ce qui attire le plus l’attention.</p>
+<p>Les <a href="https://upworthy.natematias.com/">archives d’Upworthy</a> contiennent les résultats de 22743 expériences, avec un taux moyens de clics de 1.58% (écart type de 1.23%).</p>
+</div></div>
+</section>
+<section id="titres-darticles" class="slide level2 smaller">
+<h2>Titres d’articles</h2>
+<p>Voici les résultats d’un test A/B du 23 novembre 2014 qui comparait quatre titres pour un atelier de Sesame Street. L’épisode traitait d’enfants dont les parents étaient incarcérés en prison, où ils les visitaient. Les quatre choix considérés étaient:</p>
+<ol type="1">
+<li class="fragment">Some Don’t Like It When He Sees His Mom. But To Him? Pure Joy. Why Keep Her From Him?</li>
+<li class="fragment">They’re Not In Danger. They’re Right. See True Compassion From The Children Of The Incarcerated.</li>
+<li class="fragment">Kids Have No Place In Jail … But In This Case, They <em>Totally</em> Deserve It.</li>
+<li class="fragment">Going To Jail <em>Should</em> Be The Worst Part Of Their Life. It’s So Not. Not At All.</li>
+</ol>
+</section>
+<section id="tests-ab-exemple-de-sesame-street" class="slide level2">
+<h2>Tests A/B: exemple de Sesame street</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">titre</th>
+<th style="text-align: right;">vues</th>
+<th style="text-align: right;">clics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">H1</td>
+<td style="text-align: right;">3060</td>
+<td style="text-align: right;">49</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H2</td>
+<td style="text-align: right;">2982</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">H3</td>
+<td style="text-align: right;">3112</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">H4</td>
+<td style="text-align: right;">3083</td>
+<td style="text-align: right;">9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="méthodes-de-rééchantillonage" class="slide level2">
+<h2>Méthodes de rééchantillonage</h2>
+<p>Le traffic est redirigé de manière aléatoire: on pourrait vérifier la répartition des 12 237 vues avec un test d’ajustement.</p>
+<ul>
+<li>On calcule la statistique de test <span class="math inline">\(T\)</span> sur l’échantillon.</li>
+<li>Sous <span class="math inline">\(\mathscr{H}_0\)</span>, cela revient à simuler des tirages d’une loi multinomale avec <span class="math inline">\(p=(1/4, 1/4, 1/4, 1/4)\)</span>. Pour chaque tirage du modèle, on recalcule la statistique. On répète <span class="math inline">\(B\)</span> fois.</li>
+<li>On compare les résultats: la valeur-p est estimée par la proportion empirique des <span class="math inline">\(B\)</span> simulations qui excèdent <span class="math inline">\(T\)</span>.</li>
+</ul>
+</section>
+<section id="code-pour-monte-carlo" class="slide level2">
+<h2>Code pour Monte Carlo</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>B <span class="ot">&lt;-</span> <span class="dv">1000</span>L <span class="co"># nombre de simulations Monte Carlo</span></span>
+<span id="cb5-2"><a></a>vues <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3060</span>L, <span class="dv">2982</span>L, <span class="dv">3112</span>L, <span class="dv">3083</span>L)</span>
+<span id="cb5-3"><a></a>total <span class="ot">&lt;-</span> <span class="fu">sum</span>(vues) <span class="co"># décompte total</span></span>
+<span id="cb5-4"><a></a><span class="co"># Fonction calculant la statistique de test</span></span>
+<span id="cb5-5"><a></a>stat_khideux_unif <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
+<span id="cb5-6"><a></a>    x, <span class="co"># vecteur de décomptes</span></span>
+<span id="cb5-7"><a></a>    <span class="at">prob =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="fu">length</span>(x), <span class="fu">length</span>(x)), <span class="co"># probabilité postulée </span></span>
+<span id="cb5-8"><a></a>    <span class="at">n =</span> <span class="fu">sum</span>(x)) <span class="co"># décompte total</span></span>
+<span id="cb5-9"><a></a>  { <span class="co"># E = n*prob, O = x</span></span>
+<span id="cb5-10"><a></a>  <span class="fu">sum</span>((x <span class="sc">-</span> n<span class="sc">*</span>prob)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>(n<span class="sc">*</span>prob)) <span class="co"># statistique du score</span></span>
+<span id="cb5-11"><a></a>}</span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a><span class="co"># On remplace l'approximation khi-deux avec 3 ddl</span></span>
+<span id="cb5-14"><a></a><span class="co"># par une approximation Monte Carlo</span></span>
+<span id="cb5-15"><a></a>loinulle <span class="ot">&lt;-</span> <span class="fu">numeric</span>(B) <span class="co"># contenant</span></span>
+<span id="cb5-16"><a></a>test <span class="ot">&lt;-</span> <span class="fu">stat_khideux_unif</span>(vues) <span class="co"># stat avec données originales</span></span>
+<span id="cb5-17"><a></a><span class="co"># Tirages sous H0</span></span>
+<span id="cb5-18"><a></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>B){</span>
+<span id="cb5-19"><a></a>  x0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rmultinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> total, <span class="at">prob =</span> <span class="fu">rep</span>(<span class="fl">0.25</span>, <span class="dv">4</span>)))</span>
+<span id="cb5-20"><a></a>  loinulle[i] <span class="ot">&lt;-</span> <span class="fu">stat_khideux_unif</span>(x0)</span>
+<span id="cb5-21"><a></a>}</span>
+<span id="cb5-22"><a></a><span class="co"># Probabilité sous H0 d'obtenir un résultat plus grand?</span></span>
+<span id="cb5-23"><a></a><span class="co"># remplacée par proportion empirique</span></span>
+<span id="cb5-24"><a></a><span class="fu">mean</span>(loinulle <span class="sc">&gt;=</span> test)</span>
+<span id="cb5-25"><a></a><span class="do">## [1] 0.377</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+<img data-src="CanCOTS-CEGEP_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<section id="questions-plus-générales" class="slide level2">
+<h2>Questions plus générales</h2>
+<p>On peut estimer le taux de conversion (clics/vues) par la proportion empirique.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>prop <span class="ot">&lt;-</span> <span class="fu">with</span>(abtest, clics<span class="sc">/</span>vues)</span>
+<span id="cb6-2"><a></a>nvues <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="co"># nombre de vues</span></span>
+<span id="cb6-3"><a></a>B <span class="ot">&lt;-</span> <span class="fl">1e4</span>L <span class="co"># nombre de simulations Monte Carlo</span></span>
+<span id="cb6-4"><a></a>res <span class="ot">&lt;-</span> <span class="fu">cbind</span>(</span>
+<span id="cb6-5"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">1</span>]),</span>
+<span id="cb6-6"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">2</span>]),</span>
+<span id="cb6-7"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">3</span>]),</span>
+<span id="cb6-8"><a></a>  <span class="fu">rbinom</span>(<span class="at">n =</span> B, <span class="at">size =</span> nvues, <span class="at">prob =</span> prop[<span class="dv">4</span>]))</span>
+<span id="cb6-9"><a></a><span class="co"># Probabilité que le titre i génère plus de clics</span></span>
+<span id="cb6-10"><a></a><span class="co"># avec 1000 vues</span></span>
+<span id="cb6-11"><a></a><span class="fu">table</span>(<span class="fu">apply</span>(res, <span class="dv">1</span>, which.max))<span class="sc">/</span>B</span>
+<span id="cb6-12"><a></a><span class="do">## </span></span>
+<span id="cb6-13"><a></a><span class="do">##      1      2      3 </span></span>
+<span id="cb6-14"><a></a><span class="do">## 0.8973 0.0117 0.0910</span></span>
+<span id="cb6-15"><a></a><span class="co"># On peut obtenir un intervalle de confiance </span></span>
+<span id="cb6-16"><a></a><span class="co"># (ce sont des moyennes)!</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="à-vous-de-jouer" class="slide level2">
+<h2>À vous de jouer</h2>
+<p>On vous propose de travailler avec nous</p>
+<ul>
+<li>l’incorporation de jeux de données thématiques,</li>
+<li>l’introduction aux langages de programmation pour la réalisation de tests et les calculs,</li>
+<li>l’utilisation de simulations et d’applications interactives pour illustrer les concepts et résultats</li>
+<li>la construction de bases d’exercices (interactifs ou papiers).</li>
+</ul>
+</section>
+<section id="données-ouvertes" class="slide level2">
+<h2>Données ouvertes</h2>
+<ul>
+<li>Sites gouvernementaux: <a href="https://www.donneesquebec.ca/">Données Québec</a>, <a href="https://www150.statcan.gc.ca/n1/fr/type/donnees">Statistique Canada</a>, <a href="https://www.data.gov.uk/">data.gov.uk</a></li>
+<li>Répertoires de partages de données d’articles scientifiques: <a href="https://researchbox.org/">ResearchBox</a>, <a href="https://osf.io/">OSF</a></li>
+<li>Données distribuées avec paquets <strong>R</strong> <a href="https://vincentarelbundock.github.io/Rdatasets/"><code>Rdatasets</code></a></li>
+</ul>
+<p>Les données plus récentes ou réalistes nécessitent un prétraitement ou nettoyage.</p>
+</section>
+<section id="logiciels" class="slide level2">
+<h2>Logiciels</h2>
+<ul>
+<li><a href="https://cran.r-project.org/">R</a></li>
+<li><a href="https://www.python.org/">Python</a> via <a href="https://www.statsmodels.org/stable/index.html">statmodels</a></li>
+<li><a href="https://www.jamovi.org/">Jamovi</a></li>
+<li><a href="https://jasp-stats.org/">JASP</a></li>
+</ul>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="figures/logo_hec_montreal_bleu_web.png" class="slide-logo"></p>
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copié");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copié");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
